@@ -1,3 +1,17 @@
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+p {
+	word-wrap: break-word;
+	word-break: keep-all;
+}
+
+html {
+    -webkit-text-size-adjust: none
+}
 /* ==========================================================================
    Chrome Frame prompt
    ========================================================================== */
@@ -123,7 +137,7 @@
 		-webkit-transition: all 0.7s 0.3s cubic-bezier(1,0,0.645,1);  
 				transition: all 0.7s 0.3s cubic-bezier(1,0,0.645,1);
 		// -webkit-transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000);  
-		// 		transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000);
+		//      transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000);
 	}
 	.loaded #loader-wrapper .loader-section.section-right {
 		-webkit-transform: translateX(100%);  /* Chrome, Opera 15+, Safari 3.1+ */
@@ -350,3 +364,319 @@
 	Anyway I don't really mind it. This is a great way to learn so you actually doing the right thing:)
 	Follow me @ihatetomatoes
 */
+
+/* ========================================================================================================
+		custom
+======================================================================================================== */
+a {
+	transition: 0.5s; 
+}
+
+#content {
+	position: fixed;
+	height: 100%;
+	width: 100%;
+}
+
+#chatlist {
+	background-color: #444753;
+/*    box-shadow: 0 0 10px #444753;*/
+}
+
+#onlinepanel {
+	background-color: #444753;
+/*    box-shadow: 0 0 10px #444753;*/
+}
+
+#main {
+	height: 100%;
+	// width: 100%;
+	background-color: #F2F5F8;
+	border: 0;
+	overflow-x: hidden;
+	overflow-y: hidden;
+}
+
+#messagebody {
+	// width: 100%;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	margin-top: 12%;
+	margin-bottom: 12%;
+	padding-top: 1em;
+	max-height: 79%;
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+
+#inputpanel {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	height: 10%;
+	width: 100%;
+	background-color: #F2F5F8;
+	border-top: 3px solid white;
+/*    box-shadow: 0 0 0px #BDBDBD;*/
+	z-index: 20;
+}
+
+#nav-wrapper {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 10%;
+	width: 100%;
+	background-color: #9575CD;
+/*    box-shadow: 0 0 10px #9575CD;*/
+	z-index: 20;
+}
+
+/* The side navigation menu */
+.sidenav {
+	height: 100%; /* 100% Full-height */
+	top: 0;
+	z-index: 100; /* Stay on top */
+	background-color: #111; /* Black*/
+	overflow-x: hidden; /* Disable horizontal scroll */
+	padding-top: 60px; /* Place content 60px from the top */ /* 0.5 second transition effect to slide in the sidenav */
+}
+// .sidenav-closed-right {
+//  left: 100%;
+//  right: -100%;
+// }
+// .sidenav-open-right {
+//  left: auto;
+//  right: 0;
+// }
+// .sidenav-closed-left {
+//  left: -100%;
+//  right: 100%;
+// }
+// .sidenav-open-left {
+//  left: 0;
+//  right: auto;
+// }
+
+/* The navigation menu links */
+// .sidenav a {
+//  padding: 8px 8px 8px 32px;
+//  text-decoration: none;
+//  font-size: 25px;
+//  color: #111;
+//  display: block;
+// }
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover, .offcanvas a:focus{
+	color: #f1f1f1;
+}
+
+/* Position and style the close button (top right corner) */
+// .sidenav-closebtn-left, .sidenav-closebtn-right {
+//  color: #818181;
+//  display: block;
+//  text-decoration: none;
+//  position: absolute;
+//  top: 0;
+//  font-size: 36px;
+//  z-index: 100;
+// }
+// .sidenav-closebtn-left {
+//  left: 2.5%;
+// }
+// .sidenav-closebtn-right {
+//  right: 2.5%;
+// }
+// .sidenav .sidenav-closebtn-left {
+//     right: 5%;
+//     left: auto;
+// }
+// .sidenav .sidenav-closebtn-right {
+//     left: auto;
+//     right: 5%;
+// }
+/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+	.sidenav {padding-top: 15px;}
+	.sidenav a {font-size: 18px;}
+}
+
+input[name="message"] {
+	width: 130px;
+	-webkit-transition: width 0.4s ease-in-out;
+			transition: width 0.4s ease-in-out;
+}
+
+/* When the input field gets focus, change its width to 100% */
+input[name="message"]:focus {
+	width: 100%;
+}
+
+.message {
+	width: 83.33333333333333%;
+	letter-spacing: 0.25px;
+
+	word-wrap: break-word;
+	word-break: keep-all;
+
+	padding: 5px 20px;
+	line-height: 26px;
+	border-radius: 7px;
+	margin-bottom: 30px;
+
+	position: relative;
+}
+
+.message p {
+	color: white;
+	// text-shadow: inset 0 0.5px 0.5px #A0A0A0;
+	margin: 0;
+	font-size: 14px;
+	line-height: 24px;
+}
+
+.message:after {
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+	border-width: 10px;
+	margin-left: -10px;
+}
+.my-message:after {
+	top: 100%;
+	border-top-color: #86BB71;
+	left: 7%;
+}
+.other-message:after {
+	bottom: 100%;
+	border-bottom-color: #94C2ED;
+	left: 93%;
+}
+.my-message {
+	background: #86BB71;
+	border: 1px outset #86BB71;
+	float: left;
+}
+.other-message {
+	background: #94C2ED;
+	border: 1px inset #94C2ED;
+	float: right;
+}
+
+.closebtn {
+	position: absolute;
+	right: 20%;
+	color: #888;
+	font-weight: bolder;
+	float: right;
+	font-size: 20px;
+	cursor: pointer;
+	transform: translate3d(0,-2px,0);
+}
+
+.closebtn:hover {
+	color: #000;
+}
+
+.chip {
+	display: inline-block;
+	padding: 0 25px;
+	height: 50px;
+	width: 100%;
+	font-size: 14px;
+	line-height: 50px;
+	border-radius: 25px;
+	background-color: #f1f1f1;
+	margin-bottom: 10px;
+}
+
+.chip img {
+	float: left;
+	margin: 0 10px 0 -27px;
+	height: 54px;
+	width: 54px;
+	border-radius: 50%;
+	transform: translate3d(0,-2px,0);
+}
+
+.online img {
+	border: 2px solid #76FF03;
+	box-shadow: 0 0 3px #76FF03;
+}
+
+.offline img {
+	border: 2px solid #F44336;
+	box-shadow: 0 0 3px #F44336;
+}
+
+.chip div {
+	overflow: hidden;
+	text-overflow: hidden;
+}
+
+
+@media screen and (max-width: 787px) {
+	.chip {
+		padding: 0 20px;
+		height: 40px;
+		font-size: 11px;
+		line-height: 40px;
+		border-radius: 20px;	
+	}
+
+	.chip img {
+		margin: 0 10px 0 -23px;
+		height: 46px;
+		width: 46px;
+		transform: translate3d(0,-3px,0);
+	}
+
+	.closebtn {
+	    color: #888;
+	    font-weight: bolder;
+	    float: right;
+	    font-size: 16px;
+	    cursor: pointer;
+		transform: translate3d(0,-2px,0);
+	}
+
+	.message p {
+		font-size: 13px;
+		line-height: 20px;
+	}
+}
+
+/* Let's get this party started */
+::-webkit-scrollbar {
+    width: 1.25vmin;
+}
+ 
+/* Track */
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 5px 1px rgba(0,0,0,0.3); 
+    -webkit-border-radius: 1vmin;
+    border-radius: 1vmin;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 1vmin;
+    border-radius: 1vmin;
+    -webkit-box-shadow: inset 0 0 6px 5px rgba(255,255,255,0);
+
+    background-color: darkgrey;
+  	outline: 1px solid slategrey;
+}
+// ::-webkit-scrollbar-thumb:window-inactive {
+// 	background: transparent; 
+// }
+// ::-webkit-scrollbar-track:window-inactive {
+//     -webkit-box-shadow: inset 0 0 0 0 transparent;
+// }
