@@ -1,4 +1,4 @@
-* {
+*, *:before, *:after {
 	box-sizing: border-box;
 	margin: 0;
 	padding: 0;
@@ -10,11 +10,16 @@ p {
 }
 
 html {
-    -webkit-text-size-adjust: none
+	-webkit-text-size-adjust: none
 }
+
+/* JavaScript Turned Off */
+	.no-js #loader-wrapper {
+		display: none;
+	}
 /* ==========================================================================
-   Chrome Frame prompt
-   ========================================================================== */
+			Chrome Frame prompt
+			========================================================================== */
 
 .chromeframe {
 	margin: 0.2em 0;
@@ -24,8 +29,8 @@ html {
 }
 
 /* ==========================================================================
-   Author's custom styles
-   ========================================================================== */
+			Author's custom styles
+			========================================================================== */
 
 #loader-wrapper {
 	position: fixed;
@@ -150,8 +155,8 @@ html {
 	
 	.loaded #loader {
 		opacity: 0;
-		-webkit-transition: all 0.3s ease-out;  
-				transition: all 0.3s ease-out;
+		-webkit-transition: all 0.75s linear;
+				transition: all 0.75s linear;
 	}
 	.loaded #loader-wrapper {
 		visibility: hidden;
@@ -160,22 +165,17 @@ html {
 			-ms-transform: translateY(-100%);  /* IE 9 */
 				transform: translateY(-100%);  /* Firefox 16+, IE 10+, Opera */
 
-		-webkit-transition: all 0.3s 1s ease-out;  
-				transition: all 0.3s 1s ease-out;
+		-webkit-transition: all 0.75s 1s linear;
+				transition: all 0.75s 1s linear;
 	}
-	
-	/* JavaScript Turned Off */
-	// .no-js #loader-wrapper {
-	// 	display: none;
-	// }
 
 /* ==========================================================================
-   Helper classes
-   ========================================================================== */
+			Helper classes
+			========================================================================== */
 
 /*
- * Image replacement
- */
+	* Image replacement
+	*/
 
 .ir {
 	background-color: transparent;
@@ -193,8 +193,8 @@ html {
 }
 
 /*
- * Hide from both screenreaders and browsers: h5bp.com/u
- */
+	* Hide from both screenreaders and browsers: h5bp.com/u
+	*/
 
 .hidden {
 	display: none !important;
@@ -202,8 +202,8 @@ html {
 }
 
 /*
- * Hide only visually, but have it available for screenreaders: h5bp.com/v
- */
+	* Hide only visually, but have it available for screenreaders: h5bp.com/v
+	*/
 
 .visuallyhidden {
 	border: 0;
@@ -217,9 +217,9 @@ html {
 }
 
 /*
- * Extends the .visuallyhidden class to allow the element to be focusable
- * when navigated to via the keyboard: h5bp.com/p
- */
+	* Extends the .visuallyhidden class to allow the element to be focusable
+	* when navigated to via the keyboard: h5bp.com/p
+	*/
 
 .visuallyhidden.focusable:active,
 .visuallyhidden.focusable:focus {
@@ -232,24 +232,24 @@ html {
 }
 
 /*
- * Hide visually and from screenreaders, but maintain layout
- */
+	* Hide visually and from screenreaders, but maintain layout
+	*/
 
 .invisible {
 	visibility: hidden;
 }
 
 /*
- * Clearfix: contain floats
- *
- * For modern browsers
- * 1. The space content is one way to avoid an Opera bug when the
- *    `contenteditable` attribute is included anywhere else in the document.
- *    Otherwise it causes space to appear at the top and bottom of elements
- *    that receive the `clearfix` class.
- * 2. The use of `table` rather than `block` is only necessary if using
- *    `:before` to contain the top-margins of child elements.
- */
+	* Clearfix: contain floats
+	*
+	* For modern browsers
+	* 1. The space content is one way to avoid an Opera bug when the
+	*    `contenteditable` attribute is included anywhere else in the document.
+	*    Otherwise it causes space to appear at the top and bottom of elements
+	*    that receive the `clearfix` class.
+	* 2. The use of `table` rather than `block` is only necessary if using
+	*    `:before` to contain the top-margins of child elements.
+	*/
 
 .clearfix:before,
 .clearfix:after {
@@ -262,35 +262,35 @@ html {
 }
 
 /*
- * For IE 6/7 only
- * Include this rule to trigger hasLayout and contain floats.
- */
+	* For IE 6/7 only
+	* Include this rule to trigger hasLayout and contain floats.
+	*/
 
 .clearfix {
 	*zoom: 1;
 }
 
 /* ==========================================================================
-   EXAMPLE Media Queries for Responsive Design.
-   These examples override the primary ('mobile first') styles.
-   Modify as content requires.
-   ========================================================================== */
+			EXAMPLE Media Queries for Responsive Design.
+			These examples override the primary ('mobile first') styles.
+			Modify as content requires.
+			========================================================================== */
 
 @media only screen and (min-width: 35em) {
 	/* Style adjustments for viewports that meet the condition */
 }
 
 @media print,
-	   (-o-min-device-pixel-ratio: 5/4),
-	   (-webkit-min-device-pixel-ratio: 1.25),
-	   (min-resolution: 120dpi) {
+				(-o-min-device-pixel-ratio: 5/4),
+				(-webkit-min-device-pixel-ratio: 1.25),
+				(min-resolution: 120dpi) {
 	/* Style adjustments for high resolution devices */
 }
 
 /* ==========================================================================
-   Print styles.
-   Inlined to avoid required HTTP connection: h5bp.com/r
-   ========================================================================== */
+			Print styles.
+			Inlined to avoid required HTTP connection: h5bp.com/r
+			========================================================================== */
 
 @media print {
 	* {
@@ -314,8 +314,8 @@ html {
 	}
 
 	/*
-	 * Don't show links for images, or javascript/internal links
-	 */
+		* Don't show links for images, or javascript/internal links
+		*/
 
 	.ir a:after,
 	a[href^="javascript:"]:after,
@@ -399,16 +399,13 @@ a {
 
 #messagebody {
 	// width: 100%;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	margin-top: 12%;
-	margin-bottom: 12%;
-	padding-top: 1em;
-	max-height: 79%;
+	margin-top: 8%; 
+	// padding-top: 1em;
+	max-height: 80%;
 	overflow-y: auto;
 	overflow-x: hidden;
 }
+
 
 #inputpanel {
 	position: absolute;
@@ -423,9 +420,10 @@ a {
 }
 
 #nav-wrapper {
-	position: absolute;
+	position: relative;
 	top: 0;
 	left: 0;
+	margin: 0 -15px;
 	height: 10%;
 	width: 100%;
 	background-color: #9575CD;
@@ -439,17 +437,18 @@ a {
 	top: 0;
 	z-index: 100; /* Stay on top */
 	background-color: #111; /* Black*/
-	overflow-x: hidden; /* Disable horizontal scroll */
-	padding-top: 60px; /* Place content 60px from the top */ /* 0.5 second transition effect to slide in the sidenav */
+	overflow-x: none; /* Disable horizontal scroll */
+	padding-top: 60px; /* Place content 60px from the top */
+	/* 0.5 second transition effect to slide in the sidenav */
 }
-// .sidenav-closed-right {
-//  left: 100%;
-//  right: -100%;
-// }
-// .sidenav-open-right {
-//  left: auto;
-//  right: 0;
-// }
+.sidenav-closed {
+	left: 100%;
+	right: -100%;
+}
+.sidenav-open {
+	left: auto;
+	right: 0;
+}
 // .sidenav-closed-left {
 //  left: -100%;
 //  right: 100%;
@@ -469,34 +468,34 @@ a {
 // }
 
 /* When you mouse over the navigation links, change their color */
-.sidenav a:hover, .offcanvas a:focus{
+.offcanvas a:focus{
 	color: #f1f1f1;
 }
 
 /* Position and style the close button (top right corner) */
-// .sidenav-closebtn-left, .sidenav-closebtn-right {
-//  color: #818181;
-//  display: block;
-//  text-decoration: none;
-//  position: absolute;
-//  top: 0;
-//  font-size: 36px;
-//  z-index: 100;
-// }
+.sidenav-closebtn {
+	color: #818181;
+	display: block;
+	text-decoration: none;
+	position: absolute;
+	top: 0;
+	font-size: 36px;
+	z-index: 100;
+}
 // .sidenav-closebtn-left {
-//  left: 2.5%;
+// 	left: 2.5%;
 // }
-// .sidenav-closebtn-right {
-//  right: 2.5%;
-// }
+.sidenav-closebtn {
+	right: 2%;
+}
 // .sidenav .sidenav-closebtn-left {
 //     right: 5%;
 //     left: auto;
 // }
-// .sidenav .sidenav-closebtn-right {
-//     left: auto;
-//     right: 5%;
-// }
+.sidenav .sidenav-closebtn {
+    left: auto;
+    right: 6%;
+}
 /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
 
 /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
@@ -516,6 +515,11 @@ input[name="message"]:focus {
 	width: 100%;
 }
 
+.message-wrapper {
+	display: block;
+	position: relative;
+}
+
 .message {
 	width: 83.33333333333333%;
 	letter-spacing: 0.25px;
@@ -526,7 +530,7 @@ input[name="message"]:focus {
 	padding: 5px 20px;
 	line-height: 26px;
 	border-radius: 7px;
-	margin-bottom: 30px;
+	margin: 30px 0;
 
 	position: relative;
 }
@@ -534,7 +538,7 @@ input[name="message"]:focus {
 .message p {
 	color: white;
 	// text-shadow: inset 0 0.5px 0.5px #A0A0A0;
-	margin: 0;
+	margin: 5px 0;
 	font-size: 14px;
 	line-height: 24px;
 }
@@ -550,24 +554,70 @@ input[name="message"]:focus {
 	margin-left: -10px;
 }
 .my-message:after {
-	top: 100%;
-	border-top-color: #86BB71;
-	left: 7%;
+	bottom: 110%;
+	border-left-color: #86BB71;
+	left: 1%;
 }
 .other-message:after {
-	bottom: 100%;
-	border-bottom-color: #94C2ED;
-	left: 93%;
+	bottom: 110%;
+	border-right-color: #94C2ED;
+	left: 99%;
 }
 .my-message {
 	background: #86BB71;
-	border: 1px outset #86BB71;
+	border: 1px inset #86BB71;
 	float: left;
 }
 .other-message {
 	background: #94C2ED;
 	border: 1px inset #94C2ED;
 	float: right;
+}
+
+.message-data {	
+	position: relative;
+	display: block;
+	line-height: 2;
+}
+
+.my-message + .message-data .message-data-name {
+	
+	position: absolute;
+	left: 2%;
+}
+.my-message + .message-data .message-data-time {
+	
+	position: absolute;
+	right: 20%;
+}
+
+.other-message + .message-data .message-data-name {
+	
+	position: absolute;
+	right: 2%;
+}
+.other-message + .message-data .message-data-time {
+	
+	position: absolute;
+	left: 20%;
+}
+.message-data-time {
+	color: #a8aab1;
+	// padding-left: 6px;
+}
+
+.date-separator {
+	display: block;
+	position: relative;
+	text-align: center;
+	width: 25%;
+	left: 37.5%;
+	right: 37.5%;
+	background-color: #ddcaff;
+	border-radius: 7px;
+	border: 2px solid #9575cd;
+	box-shadow: inset 0 0 6px #9575cd;
+
 }
 
 .closebtn {
@@ -583,6 +633,29 @@ input[name="message"]:focus {
 
 .closebtn:hover {
 	color: #000;
+}
+
+@-webkit-keyframes shadow {
+	0%   { 
+		box-shadow: 0 0 0 skyblue;
+	}
+	50% {
+		box-shadow: 0 0 30px skyblue;
+	}
+	100% {
+		box-shadow: 0 0 0 skyblue;
+	}
+}
+@keyframes shadow {
+	0%   { 
+		box-shadow: 0 0 0 skyblue;
+	}
+	50% {
+		box-shadow: 0 0 30px skyblue;
+	}
+	100% {
+		box-shadow: 0 0 0 skyblue;
+	}
 }
 
 .chip {
@@ -621,6 +694,17 @@ input[name="message"]:focus {
 	text-overflow: hidden;
 }
 
+#chatlist .chip-open {
+	width: 120%;
+	border-top-right-radius: 0;
+	border-bottom-right-radius: 0;
+	box-shadow: 0 0 10px black;
+}
+
+.new-message {
+	-webkit-animation: shadow 3s linear infinite; /* Chrome, Opera 15+, Safari 5+ */
+			animation: shadow 3s linear infinite; /* Chrome, Firefox 16+, IE 10+, Opera */
+}
 
 @media screen and (max-width: 787px) {
 	.chip {
@@ -639,11 +723,11 @@ input[name="message"]:focus {
 	}
 
 	.closebtn {
-	    color: #888;
-	    font-weight: bolder;
-	    float: right;
-	    font-size: 16px;
-	    cursor: pointer;
+		color: #888;
+		font-weight: bolder;
+		float: right;
+		font-size: 16px;
+		cursor: pointer;
 		transform: translate3d(0,-2px,0);
 	}
 
@@ -651,28 +735,32 @@ input[name="message"]:focus {
 		font-size: 13px;
 		line-height: 20px;
 	}
+
+	#chatlist .chip-open {
+		width: 130%;
+	}
 }
 
 /* Let's get this party started */
 ::-webkit-scrollbar {
-    width: 1.25vmin;
+	width: 1.25vmin;
 }
- 
+	
 /* Track */
-::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 5px 1px rgba(0,0,0,0.3); 
-    -webkit-border-radius: 1vmin;
-    border-radius: 1vmin;
-}
- 
+// ::-webkit-scrollbar-track {
+	// -webkit-box-shadow: inset 0 0 5px 1px rgba(0,0,0,0.3); 
+	// -webkit-border-radius: 1vmin;
+	// border-radius: 1vmin;
+// }
+	
 /* Handle */
 ::-webkit-scrollbar-thumb {
-    -webkit-border-radius: 1vmin;
-    border-radius: 1vmin;
-    -webkit-box-shadow: inset 0 0 6px 5px rgba(255,255,255,0);
+	-webkit-border-radius: 1vmin;
+	border-radius: 1vmin;
+	-webkit-box-shadow: inset 0 0 6px 5px rgba(255,255,255,0);
 
-    background-color: darkgrey;
-  	outline: 1px solid slategrey;
+	background-color: darkgrey;
+	outline: 1px solid slategrey;
 }
 // ::-webkit-scrollbar-thumb:window-inactive {
 // 	background: transparent; 

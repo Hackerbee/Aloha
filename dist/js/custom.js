@@ -1,10 +1,12 @@
 $(document).ready(function() {
-	$('#content').hide();
-	setTimeout(function(){
-		$('body').addClass('loaded');
-       $('#content').fadeIn(1000);
-	}, 3000);
-
+	// $('#chatlist, #main, #messagebody, #messagelist').hide();
+	// setTimeout(function(){
+	// 	$('body').addClass('loaded');
+	// 	$('#chatlist').fadeIn(1000);
+	// 	$('#main').fadeIn(1300);
+	// 	$('#messagebody').fadeIn(1600);
+	// 	$('#messagelist').fadeIn(1900);
+	// }, 3000);
 });
 function addchat() {
 	$('#chatlist').append('<div class="container"> \
@@ -26,44 +28,20 @@ function addonline() {
 }
 
 function addmessage() {
-	$('#messagebody').prepend('<div class="container"> \
-					<div class="message"> \
-						<p>...sadasdadsadasdasdsadasdasfaedsdasfqeqdsafweafsdaesDcasFdqas</p> \
-					</div> \
-				</div>');
+	$('#messagelist').prepend('<li class="message-wrapper clearfix"> \
+									<div class="message my-message"> \
+										<p>...sadasdadsadasdasdsadasdasfaedsdasfqeqdsafweafsdaesDcasFdqas</p> \
+									</div> \
+									<div class="message-data"> \
+										<i class="message-data-time">10:14 AM</i> \
+										<span class="message-data-name">Me</span> \
+									</div> \
+								</li>');
 }
 // var img = $('<img class="img-responsive" />').attr('src', json['path']).on('load',function(){ $('#loadimg').html(img); });
 
-// function toggleNav(dir) {
-
-// 	if(dir == 'L') {
-// 		$('#chatlist,#main').toggleClass('pull-lg-3 pull-md-3 pull-sm-3 closed');
-// 		s1 = $('#chatlist').hasClass('closed');
-// 		s2 = $('#onlinepanel').hasClass('closed');
-
-// 		if ( s1 && s2 ) {
-// 			$('#main').addClass('col-lg-12 col-md-12 col-sm-12 pull-lg-3 pull-md-3 pull-sm-3').removeClass('col-lg-9 col-md-9 col-sm-9 col-lg-6 col-md-6 col-sm-6');
-// 		} else if ( s1 && !s2 ) {
-// 			$('#main').addClass('col-lg-9 col-md-9 col-sm-9 pull-lg-3 pull-md-3 pull-sm-3').removeClass('col-lg-6 col-md-6 col-sm-6');
-// 		} else if ( s2 ) {
-// 			$('#main').addClass('col-lg-9 col-md-9 col-sm-9').removeClass('col-lg-6 col-md-6 col-sm-6');
-// 		} else {
-// 			$('#main').addClass('col-lg-6 col-md-6 col-sm-6').removeClass('col-lg-9 col-md-9 col-sm-9');
-// 		}
-// 	} else {
-// 		$('#onlinepanel').toggleClass('push-lg-3 push-md-3 push-sm-3 closed');
-// 		s1 = $('#chatlist').hasClass('closed');
-// 		s2 = $('#onlinepanel').hasClass('closed');
-
-// 		if ( s1 && s2 ) {
-// 			$('#main').addClass('col-lg-12 col-md-12 col-sm-12 pull-lg-3 pull-md-3 pull-sm-3').removeClass('col-lg-9 col-md-9 col-sm-9 col-lg-6 col-md-6 col-sm-6');
-// 		} else if ( s1 ) {
-// 			$('#main').addClass('col-lg-9 col-md-9 col-sm-9').removeClass('col-lg-12 col-md-12 col-sm-12 col-lg-6 col-md-6 col-sm-6');
-// 		} else if ( s2 ) {
-// 			$('#main').addClass('col-lg-9 col-md-9 col-sm-9').removeClass('col-lg-12 col-md-12 col-sm-12 col-lg-6 col-md-6 col-sm-6');
-// 		} else {
-// 			$('#main').addClass('col-lg-6 col-md-6 col-sm-6').removeClass('col-lg-12 col-md-12 col-sm-12 col-lg-9 col-md-9 col-sm-9');
-// 		}
-// 	}
-// }
+function toggleNav() {
+	$('#onlinepanel').toggleClass('push-lg-3 push-md-3 push-sm-3 sidenav-closed sidenav-open');
+	$('#main').toggleClass('col-lg-6 col-md-6 col-sm-6 col-lg-9 col-md-9 col-sm-9');
+}
 

@@ -40,15 +40,15 @@
 	<div id="content">
 		<div id="chatlist" class="sidenav col-lg-3 col-md-3 col-sm-3">
 			<!-- <a href="javascript:void(0)" onclick="toggleNav('L')" class="sidenav-closebtn-left">&times;</a> -->
-			<div class="container"> 
-				<div class="chip online"> 
+			<div class="container chip-wrapper"> 
+				<div id="user-1" class="chip online chip-open"> 
 					<img src="dist/img/img_avatar.png" alt="Person" height="96" weight="96" class="img-responsive"> 
 					John Doe
 					<span class="closebtn" onclick="$(this).parent().hide();">&times;</span> 
 				</div> 
 			</div>
 			<div class="container offline"> 
-				<div class="chip"> 
+				<div id="user-2" class="chip new-message">
 					<img src="dist/img/img_avatar.png" alt="Person" height="96" weight="96" class="img-responsive"> 
 					John Doe
 					<span class="closebtn" onclick="$(this).parent().hide();">&times;</span> 
@@ -56,10 +56,10 @@
 			</div>
 		</div>
 
-		<div id="main" class="container-fluid col-lg-6 col-md-6 col-sm-6">
+		<div id="main" class="container-fluid col-lg-9 col-md-9 col-sm-9">
 			<div id="nav-wrapper" class="container-fluid">
-				<!-- <a href="javascript:void(0)" onclick="toggleNav('L')" class="sidenav-closebtn-left">&times;</a>
-				<a href="javascript:void(0)" onclick="toggleNav('R')" class="sidenav-closebtn-right">&times;</a> -->
+				<!-- <a href="javascript:void(0)" onclick="toggleNav('L')" class="sidenav-closebtn-left">&times;</a> -->
+				<a href="javascript:void(0)" onclick="toggleNav('R')" class="sidenav-closebtn">&times;</a>
 			</div>
 			<div id="inputpanel" class="container-fluid">
 				<div class="container">
@@ -67,54 +67,128 @@
 				</div>
 			</div>
 			<div id="messagebody" class="row">
-				<div class="container">
+				<div class="container-fluid">
 					<button class="btn btn-primary btn-sm" onclick="addchat()">add chat list</button>
 					<button class="btn btn-primary btn-sm" onclick="addonline()">add online list</button>
 					<button class="btn btn-primary btn-sm" onclick="addmessage()">add message</button>
 				</div><br/>
-				<div class="container">
-					<div class="message my-message">
-						<p>...sadasdadsadasdasdsadasdasfaedsdasfqeqdsafweafsdaesDcasFdqas</p>
-					</div>
-					<div class="message other-message push-right">
-						<p>...sadasdadsadasdasdsadasdasfaedsdasfqeqdsafweafsdaesDcasFdqas</p>
-					</div>
-					<div class="message my-message">
-						<p>...sadasdadsadasdasdsadasdasfaedsdasfqeqdsafweafsdaesDcasFdqas</p>
-					</div>
-					<div class="message my-message">
-						<p>...sadasdadsadasdasdsadasdasfaedsdasfqeqdsafweafsdaesDcasFdqas</p>
-					</div>
-					<div class="message my-message">
-						<p>...sadasdadsadasdasdsadasdasfaedsdasfqeqdsafweafsdaesDcasFdqas</p>
-					</div>
-					<div class="message other-message push-right">
-						<p>...sadasdadsadasdasdsadasdasfaedsdasfqeqdsafweafsdaesDcasFdqas</p>
-					</div>
-					<div class="message my-message">
-						<p>...sadasdadsadasdasdsadasdasfaedsdasfqeqdsafweafsdaesDcasFdqas</p>
-					</div>
-					<div class="message my-message">
-						<p>...sadasdadsadasdasdsadasdasfaedsdasfqeqdsafweafsdaesDcasFdqas</p>
-					</div>
-					<div class="message other-message push-right">
-						<p>...sadasdadsadasdasdsadasdasfaedsdasfqeqdsafweafsdaesDcasFdqas</p>
-					</div>
-					<div class="message my-message">
-						<p>...sadasdadsadasdasdsadasdasfaedsdasfqeqdsafweafsdaesDcasFdqas</p>
-					</div>
-					<div class="message my-message">
-						<p>...sadasdadsadasdasdsadasdasfaedsdasfqeqdsafweafsdaesDcasFdqas</p>
-					</div>
-					<div class="message my-message">
-						<p>...sadasdadsadasdasdsadasdasfaedsdasfqeqdsafweafsdaesDcasFdqas</p>
-					</div>
-				</div>
+				<ul id="messagelist" class="container-fluid">
+					<li class="message-wrapper clearfix">
+						<div class="date-separator">29th September, 2015</div>
+					<li class="message-wrapper clearfix">
+						<div class="message my-message">
+							<p>...sadasdadsadasdasdsadasdasfaedsdasfqeqdsafweafsdaesDcasFdqas</p>
+						</div>
+						<div class="message-data">
+							<i class="message-data-time">10:14 AM</i>
+							<span class="message-data-name">Olia</span>
+						</div>
+					</li>
+					<li class="message-wrapper clearfix">
+						<div class="message other-message push-right">
+							<p>...sadasdadsadasdasdsadasdasfaedsdasfqeqdsafweafsdaesDcasFdqas</p>
+						</div>
+						<div class="message-data">
+							<i class="message-data-time">10:14 AM</i>
+							<span class="message-data-name"><i class="fa fa-circle other"></i>Other</span>
+						</div>
+					</li>
+					<li class="message-wrapper clearfix">
+						<div class="message my-message">
+							<p>...sadasdadsadasdasdsadasdasfaedsdasfqeqdsafweafsdaesDcasFdqas</p>
+						</div>
+						<div class="message-data">
+							<i class="message-data-time">10:14 AM</i>
+							<span class="message-data-name">Olia</span>
+						</div>
+					</li>
+					<li class="message-wrapper clearfix">
+						<div class="message my-message">
+							<p>...sadasdadsadasdasdsadasdasfaedsdasfqeqdsafweafsdaesDcasFdqas</p>
+						</div>
+						<div class="message-data">
+							<i class="message-data-time">10:14 AM</i>
+							<span class="message-data-name">Olia</span>
+						</div>
+					</li>
+					<li class="message-wrapper clearfix">
+						<div class="message my-message">
+							<p>...sadasdadsadasdasdsadasdasfaedsdasfqeqdsafweafsdaesDcasFdqas</p>
+						</div>
+						<div class="message-data">
+							<i class="message-data-time">10:14 AM</i>
+							<span class="message-data-name">Olia</span>
+						</div>
+					</li>
+					<li class="message-wrapper clearfix">
+						<div class="message other-message push-right">
+							<p>...sadasdadsadasdasdsadasdasfaedsdasfqeqdsafweafsdaesDcasFdqas</p>
+						</div>
+						<div class="message-data">
+							<i class="message-data-time">10:14 AM</i>
+							<span class="message-data-name"><i class="fa fa-circle other"></i>Other</span>
+						</div>
+					</li>
+					<li class="message-wrapper clearfix">
+						<div class="message my-message">
+							<p>...sadasdadsadasdasdsadasdasfaedsdasfqeqdsafweafsdaesDcasFdqas</p>
+						</div>
+						<div class="message-data">
+							<i class="message-data-time">10:14 AM</i>
+							<span class="message-data-name">Olia</span>
+						</div>
+					</li>
+					<li class="message-wrapper clearfix">
+						<div class="message my-message">
+							<p>...sadasdadsadasdasdsadasdasfaedsdasfqeqdsafweafsdaesDcasFdqas</p>
+						</div>
+						<div class="message-data">
+							<i class="message-data-time">10:14 AM</i>
+							<span class="message-data-name">Olia</span>
+						</div>
+					</li>
+					<li class="message-wrapper clearfix">
+						<div class="message other-message push-right">
+							<p>...sadasdadsadasdasdsadasdasfaedsdasfqeqdsafweafsdaesDcasFdqas</p>
+						</div>
+						<div class="message-data">
+							<i class="message-data-time">10:14 AM</i>
+							<span class="message-data-name"><i class="fa fa-circle other"></i>Other</span>
+						</div>
+					</li>
+					<li class="message-wrapper clearfix">
+						<div class="message my-message">
+							<p>...sadasdadsadasdasdsadasdasfaedsdasfqeqdsafweafsdaesDcasFdqas</p>
+						</div>
+						<div class="message-data">
+							<i class="message-data-time">10:14 AM</i>
+							<span class="message-data-name">Olia</span>
+						</div>
+					</li>
+					<li class="message-wrapper clearfix">
+						<div class="message my-message">
+							<p>...sadasdadsadasdasdsadasdasfaedsdasfqeqdsafweafsdaesDcasFdqas</p>
+						</div>
+						<div class="message-data">
+							<i class="message-data-time">10:14 AM</i>
+							<span class="message-data-name">Olia</span>
+						</div>
+					</li>
+					<li class="message-wrapper clearfix">
+						<div class="message my-message">
+							<p>...sadasdadsadasdasdsadasdasfaedsdasfqeqdsafweafsdaesDcasFdqas</p>
+						</div>
+						<div class="message-data">
+							<i class="message-data-time">10:14 AM</i>
+							<span class="message-data-name">Olia</span>
+						</div>
+					</li>
+				</ul>
 			</div>
 		</div>
 
-		<div id="onlinepanel" class="sidenav col-lg-3 col-md-3 col-sm-3">
-			<!-- <a href="javascript:void(0)" onclick="toggleNav('R')" class="sidenav-closebtn-right">&times;</a> -->
+		<div id="onlinepanel" class="sidenav col-lg-3 col-md-3 col-sm-3 sidenav-closed">
+			<a href="javascript:void(0)" onclick="toggleNav('R')" class="sidenav-closebtn">&times;</a>
 		</div>
 	</div>
 	<!-- Modernizr -->
