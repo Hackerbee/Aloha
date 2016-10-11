@@ -391,7 +391,8 @@ a {
 #main {
 	height: 100%;
 	// width: 100%;
-	background-color: #F2F5F8;
+	padding: 0 !important;
+	background-color: #F1F1F1;
 	border: 0;
 	overflow-x: hidden;
 	overflow-y: hidden;
@@ -399,8 +400,8 @@ a {
 
 #messagebody {
 	// width: 100%;
-	margin-top: 8%; 
-	// padding-top: 1em;
+	// margin-top: 8%; 
+	padding-top: 5px;
 	max-height: 80%;
 	overflow-y: auto;
 	overflow-x: hidden;
@@ -408,26 +409,24 @@ a {
 
 
 #inputpanel {
-	position: absolute;
+	position: relative;
 	bottom: 0;
 	left: 0;
 	height: 10%;
 	width: 100%;
-	background-color: #F2F5F8;
-	border-top: 3px solid white;
-/*    box-shadow: 0 0 0px #BDBDBD;*/
+	background-color: #F1F1F1;
+	// border-top: 3px solid white;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
 	z-index: 20;
+	padding-top: 5px;
 }
 
 #nav-wrapper {
 	position: relative;
-	top: 0;
-	left: 0;
-	margin: 0 -15px;
 	height: 10%;
 	width: 100%;
 	background-color: #9575CD;
-/*    box-shadow: 0 0 10px #9575CD;*/
+    box-shadow: 0 0 2px #9575CD;
 	z-index: 20;
 }
 
@@ -437,9 +436,10 @@ a {
 	top: 0;
 	z-index: 100; /* Stay on top */
 	background-color: #111; /* Black*/
-	overflow-x: none; /* Disable horizontal scroll */
-	padding-top: 60px; /* Place content 60px from the top */
+	overflow-x: hidden; /* Disable horizontal scroll */
+	padding-top: 12vmin; /* Place content 60px from the top */
 	/* 0.5 second transition effect to slide in the sidenav */
+	box-shadow: inset 0 -50px 50px 10px #383a44;
 }
 .sidenav-closed {
 	left: 100%;
@@ -506,13 +506,33 @@ a {
 
 input[name="message"] {
 	width: 130px;
+	margin-right: 10px;
+	display: inline-block;
 	-webkit-transition: width 0.4s ease-in-out;
 			transition: width 0.4s ease-in-out;
+	border-width: 1.5px;
+	border-color: #66afe9;
+	padding: 0.75rem 1.5rem;
+    font-size: 1.25rem;
+    border-radius: 0.3rem;
+    line-height: 1.25;
+    color: #55595c;
+    background-color: #fff;
+    background-image: none;
+    background-clip: padding-box;
+    border: 1px solid rgba(0, 0, 0, 0.15);
 }
 
 /* When the input field gets focus, change its width to 100% */
 input[name="message"]:focus {
-	width: 100%;
+	width: 90%;
+	display: inline-block;
+}
+
+.input-btn {
+	left: -2.5vmin;
+	font-size: xx-large;
+	top: -5px;
 }
 
 .message-wrapper {
@@ -565,12 +585,12 @@ input[name="message"]:focus {
 }
 .my-message {
 	background: #86BB71;
-	border: 1px inset #86BB71;
+	// border: 1px inset #86BB71;
 	float: left;
 }
 .other-message {
 	background: #94C2ED;
-	border: 1px inset #94C2ED;
+	// border: 1px inset #94C2ED;
 	float: right;
 }
 
@@ -616,13 +636,13 @@ input[name="message"]:focus {
 	background-color: #ddcaff;
 	border-radius: 7px;
 	border: 2px solid #9575cd;
-	box-shadow: inset 0 0 6px #9575cd;
+	box-shadow: inset 0 0 1px #9575cd;
 
 }
 
 .closebtn {
-	position: absolute;
-	right: 20%;
+	position: relative;
+	// right: 0;
 	color: #888;
 	font-weight: bolder;
 	float: right;
@@ -635,28 +655,50 @@ input[name="message"]:focus {
 	color: #000;
 }
 
-@-webkit-keyframes shadow {
-	0%   { 
-		box-shadow: 0 0 0 skyblue;
+@-webkit-keyframes shake {
+		0%,50%,100%   { 
+			-webkit-transform: translateX(0);  /* Chrome, Opera 15+, Safari 3.1+ */
+				-ms-transform: translateX(0);  /* IE 9 */
+					transform: translateX(0);  /* Firefox 16+, IE 10+, Opera */
+		}
+		5% {
+			-webkit-transform: translateX(1vmax);  /* Chrome, Opera 15+, Safari 3.1+ */
+				-ms-transform: translateX(1vmax);  /* IE 9 */
+					transform: translateX(1vmax);  /* Firefox 16+, IE 10+, Opera */
+		}
+		10% {
+			-webkit-transform: translateX(0.1vmax);  /* Chrome, Opera 15+, Safari 3.1+ */
+				-ms-transform: translateX(0.1vmax);  /* IE 9 */
+					transform: translateX(0.1vmax);  /* Firefox 16+, IE 10+, Opera */
+		}
+		25% {
+			-webkit-transform: translateX(0.75vmax);  /* Chrome, Opera 15+, Safari 3.1+ */
+				-ms-transform: translateX(0.75vmax);  /* IE 9 */
+					transform: translateX(0.75vmax);  /* Firefox 16+, IE 10+, Opera */
+		}
 	}
-	50% {
-		box-shadow: 0 0 30px skyblue;
+	@keyframes shake {
+		0%,50%,100%   { 
+			-webkit-transform: translateX(0);  /* Chrome, Opera 15+, Safari 3.1+ */
+				-ms-transform: translateX(0);  /* IE 9 */
+					transform: translateX(0);  /* Firefox 16+, IE 10+, Opera */
+		}
+		5% {
+			-webkit-transform: translateX(4vmax);  /* Chrome, Opera 15+, Safari 3.1+ */
+				-ms-transform: translateX(4vmax);  /* IE 9 */
+					transform: translateX(4vmax);  /* Firefox 16+, IE 10+, Opera */
+		}
+		10% {
+			-webkit-transform: translateX(1vmin);  /* Chrome, Opera 15+, Safari 3.1+ */
+				-ms-transform: translateX(1vmin);  /* IE 9 */
+					transform: translateX(1vmin);  /* Firefox 16+, IE 10+, Opera */
+		}
+		25% {
+			-webkit-transform: translateX(2vmax);  /* Chrome, Opera 15+, Safari 3.1+ */
+				-ms-transform: translateX(2vmax);  /* IE 9 */
+					transform: translateX(2vmax);  /* Firefox 16+, IE 10+, Opera */
+		}
 	}
-	100% {
-		box-shadow: 0 0 0 skyblue;
-	}
-}
-@keyframes shadow {
-	0%   { 
-		box-shadow: 0 0 0 skyblue;
-	}
-	50% {
-		box-shadow: 0 0 30px skyblue;
-	}
-	100% {
-		box-shadow: 0 0 0 skyblue;
-	}
-}
 
 .chip {
 	display: inline-block;
@@ -666,8 +708,12 @@ input[name="message"]:focus {
 	font-size: 14px;
 	line-height: 50px;
 	border-radius: 25px;
+	border-top-right-radius: 2px;
+	border-bottom-right-radius: 22px;
 	background-color: #f1f1f1;
 	margin-bottom: 10px;
+
+	box-shadow: 00 0 4px black, inset 0 0 1px black;
 }
 
 .chip img {
@@ -681,12 +727,12 @@ input[name="message"]:focus {
 
 .online img {
 	border: 2px solid #76FF03;
-	box-shadow: 0 0 3px #76FF03;
+	box-shadow: 0 0 4px #76FF03;
 }
 
 .offline img {
 	border: 2px solid #F44336;
-	box-shadow: 0 0 3px #F44336;
+	box-shadow: 0 0 4px #F44336;
 }
 
 .chip div {
@@ -695,15 +741,12 @@ input[name="message"]:focus {
 }
 
 #chatlist .chip-open {
-	width: 120%;
-	border-top-right-radius: 0;
-	border-bottom-right-radius: 0;
-	box-shadow: 0 0 10px black;
+	width: 150%;
 }
 
 .new-message {
-	-webkit-animation: shadow 3s linear infinite; /* Chrome, Opera 15+, Safari 5+ */
-			animation: shadow 3s linear infinite; /* Chrome, Firefox 16+, IE 10+, Opera */
+	-webkit-animation: shake 3s linear infinite; /* Chrome, Opera 15+, Safari 5+ */
+			animation: shake 3s linear infinite; /* Chrome, Firefox 16+, IE 10+, Opera */
 }
 
 @media screen and (max-width: 787px) {

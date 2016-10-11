@@ -7,13 +7,14 @@ $(document).ready(function() {
 	// 	$('#messagebody').fadeIn(1600);
 	// 	$('#messagelist').fadeIn(1900);
 	// }, 3000);
+
 });
 function addchat() {
 	$('#chatlist').append('<div class="container"> \
 								<div class="chip"> \
 									<img src="dist/img/img_avatar.png" alt="Person" height="96" weight="96" class="img-responsive"> \
 									John Doe \
-									<span class="closebtn" onclick="$(this).parent().hide();">&times;</span> \
+									<span class="closebtn" onclick="event.stopPropagation();$(this).parent().hide();">&times;</span> \
 								</div> \
 							</div>');
 }
@@ -22,7 +23,7 @@ function addonline() {
 								<div class="chip"> \
 									<img src="dist/img/img_avatar.png" alt="Person" height="96" weight="96" class="img-responsive"> \
 									John Doe \
-									<span class="closebtn" onclick="$(this).parent().hide();">&times;</span> \
+									<span class="closebtn" onclick="event.stopPropagation();$(this).parent().hide();">&times;</span> \
 								</div> \
 							</div>');
 }
@@ -45,3 +46,10 @@ function toggleNav() {
 	$('#main').toggleClass('col-lg-6 col-md-6 col-sm-6 col-lg-9 col-md-9 col-sm-9');
 }
 
+function chip() {
+	$('.chip').bind('click', function() {
+		$('.chip-open').removeClass('chip-open');
+		$(this).addClass('chip-open').removeClass('new-message');
+	});
+};
+setInterval('chip()',500);
