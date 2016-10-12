@@ -27,11 +27,11 @@ class ControllerStartupStartup extends Controller {
 		// Url
 		$this->registry->set('url', new Url($this->config->get('config_url'), $this->config->get('config_ssl')));
 
-		// Customer
-		$customer = new Cart\Customer($this->registry);
-		$this->registry->set('customer', $customer);
+		// User
+		$user = new User($this->registry);
+		$this->registry->set('user', $user);
 
-		// Encryption
+		// // Encryption
 		$this->registry->set('encryption', new Encryption($this->config->get('config_encryption')));				
 	}
 }

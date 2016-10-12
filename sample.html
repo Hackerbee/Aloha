@@ -42,23 +42,27 @@
 		<div id="chatlist" class="sidenav col-lg-3 col-md-3 col-sm-3">
 			<!-- <a href="javascript:void(0)" onclick="toggleNav('L')" class="sidenav-closebtn-left">&times;</a> -->
 			<div class="container"> 
-				<div id="user-1" class="chip online chip-open"> 
-					<img src="dist/img/img_avatar.png" alt="Person" height="96" weight="96" class="img-responsive"> 
-					John Doe
-					<span class="closebtn" onclick="event.stopPropagation();$(this).parent().hide();">&times;</span> 
+				<div id="user-25" class="chip online"> 
+					<img src="dist/img/img_avatar.png" alt="Person" class="img-responsive"> 
+					<span class="closebtn" onclick="event.stopPropagation();$(this).parent().hide();">&times;</span>
+					<i id="user-25" class="text-clip">Oliver Queen</i>
 				</div> 
 			</div>
 			<div class="container"> 
-				<div id="user-2" class="chip offline new-message">
-					<img src="dist/img/img_avatar.png" alt="Person" height="96" weight="96" class="img-responsive"> 
-					John Doe
+				<div id="user-26" class="chip offline new-message">
+					<img src="dist/img/img_avatar.png" alt="Person" class="img-responsive"> 
 					<span class="closebtn" onclick="event.stopPropagation();$(this).parent().hide();">&times;</span> 
+					<i id="user-26" class="text-clip">Amanda Waller</i>
 				</div> 
 			</div>
 		</div>
 
 		<div id="main" class="col-lg-9 col-md-9 col-sm-9">
 			<div id="nav-wrapper" class="">
+				<div class="container-fluid" style="text-align:center;color:white;padding-top:5px;">
+					<i class="nav-name"></i><br/>
+					<i class="nav-status"></i>
+				</div>
 				<!-- <a href="javascript:void(0)" onclick="toggleNav('L')" class="sidenav-closebtn-left">&times;</a> -->
 				<a href="javascript:void(0)" onclick="toggleNav('R')" class="sidenav-closebtn">&times;</a>
 			</div>
@@ -69,16 +73,17 @@
 					<button class="btn btn-primary btn-sm" onclick="addonline()">add online list</button>
 					<button class="btn btn-primary btn-sm" onclick="addmessage()">add message</button>
 				</div><br/>
-				<ul id="messagelist" class="container-fluid">
+				<ul id="user-25" class="container-fluid hidden">
 					<li class="message-wrapper clearfix">
 						<div class="date-separator">29th September, 2015</div>
+					</li>
 					<li class="message-wrapper clearfix">
 						<div class="message my-message">
 							<p>...sadasdadsadasdasdsadasdasfaedsdasfqeqdsafweafsdaesDcasFdqas</p>
 						</div>
 						<div class="message-data">
 							<i class="message-data-time">10:14 AM</i>
-							<span class="message-data-name">Olia</span>
+							<span class="message-data-name">Oliver</span>
 						</div>
 					</li>
 					<li class="message-wrapper clearfix">
@@ -87,7 +92,7 @@
 						</div>
 						<div class="message-data">
 							<i class="message-data-time">10:14 AM</i>
-							<span class="message-data-name"><i class="fa fa-circle other"></i>Other</span>
+							<span class="message-data-name">Other</span>
 						</div>
 					</li>
 					<li class="message-wrapper clearfix">
@@ -96,25 +101,7 @@
 						</div>
 						<div class="message-data">
 							<i class="message-data-time">10:14 AM</i>
-							<span class="message-data-name">Olia</span>
-						</div>
-					</li>
-					<li class="message-wrapper clearfix">
-						<div class="message my-message">
-							<p>...sadasdadsadasdasdsadasdasfaedsdasfqeqdsafweafsdaesDcasFdqas</p>
-						</div>
-						<div class="message-data">
-							<i class="message-data-time">10:14 AM</i>
-							<span class="message-data-name">Olia</span>
-						</div>
-					</li>
-					<li class="message-wrapper clearfix">
-						<div class="message my-message">
-							<p>...sadasdadsadasdasdsadasdasfaedsdasfqeqdsafweafsdaesDcasFdqas</p>
-						</div>
-						<div class="message-data">
-							<i class="message-data-time">10:14 AM</i>
-							<span class="message-data-name">Olia</span>
+							<span class="message-data-name">Oliver</span>
 						</div>
 					</li>
 					<li class="message-wrapper clearfix">
@@ -123,7 +110,7 @@
 						</div>
 						<div class="message-data">
 							<i class="message-data-time">10:14 AM</i>
-							<span class="message-data-name"><i class="fa fa-circle other"></i>Other</span>
+							<span class="message-data-name">Other</span>
 						</div>
 					</li>
 					<li class="message-wrapper clearfix">
@@ -132,16 +119,7 @@
 						</div>
 						<div class="message-data">
 							<i class="message-data-time">10:14 AM</i>
-							<span class="message-data-name">Olia</span>
-						</div>
-					</li>
-					<li class="message-wrapper clearfix">
-						<div class="message my-message">
-							<p>...sadasdadsadasdasdsadasdasfaedsdasfqeqdsafweafsdaesDcasFdqas</p>
-						</div>
-						<div class="message-data">
-							<i class="message-data-time">10:14 AM</i>
-							<span class="message-data-name">Olia</span>
+							<span class="message-data-name">Oliver</span>
 						</div>
 					</li>
 					<li class="message-wrapper clearfix">
@@ -150,7 +128,7 @@
 						</div>
 						<div class="message-data">
 							<i class="message-data-time">10:14 AM</i>
-							<span class="message-data-name"><i class="fa fa-circle other"></i>Other</span>
+							<span class="message-data-name">Other</span>
 						</div>
 					</li>
 					<li class="message-wrapper clearfix">
@@ -159,7 +137,31 @@
 						</div>
 						<div class="message-data">
 							<i class="message-data-time">10:14 AM</i>
-							<span class="message-data-name">Olia</span>
+							<span class="message-data-name">Oliver</span>
+						</div>
+					</li>
+				</ul>
+
+				<ul id="user-26" class="container-fluid hidden">
+					<li class="message-wrapper clearfix">
+						<div class="date-separator">29th September, 2015</div>
+					</li>
+					<li class="message-wrapper clearfix">
+						<div class="message my-message">
+							<p>...sadasdadsadasdasdsadasdasfaedsdasfqeqdsafweafsdaesDcasFdqas</p>
+						</div>
+						<div class="message-data">
+							<i class="message-data-time">10:14 AM</i>
+							<span class="message-data-name">Amanda</span>
+						</div>
+					</li>
+					<li class="message-wrapper clearfix">
+						<div class="message other-message push-right">
+							<p>...sadasdadsadasdasdsadasdasfaedsdasfqeqdsafweafsdaesDcasFdqas</p>
+						</div>
+						<div class="message-data">
+							<i class="message-data-time">10:14 AM</i>
+							<span class="message-data-name">Other</span>
 						</div>
 					</li>
 					<li class="message-wrapper clearfix">
@@ -168,7 +170,16 @@
 						</div>
 						<div class="message-data">
 							<i class="message-data-time">10:14 AM</i>
-							<span class="message-data-name">Olia</span>
+							<span class="message-data-name">Amanda</span>
+						</div>
+					</li>
+					<li class="message-wrapper clearfix">
+						<div class="message other-message push-right">
+							<p>...sadasdadsadasdasdsadasdasfaedsdasfqeqdsafweafsdaesDcasFdqas</p>
+						</div>
+						<div class="message-data">
+							<i class="message-data-time">10:14 AM</i>
+							<span class="message-data-name">Other</span>
 						</div>
 					</li>
 					<li class="message-wrapper clearfix">
@@ -177,7 +188,25 @@
 						</div>
 						<div class="message-data">
 							<i class="message-data-time">10:14 AM</i>
-							<span class="message-data-name">Olia</span>
+							<span class="message-data-name">Amanda</span>
+						</div>
+					</li>
+					<li class="message-wrapper clearfix">
+						<div class="message other-message push-right">
+							<p>...sadasdadsadasdasdsadasdasfaedsdasfqeqdsafweafsdaesDcasFdqas</p>
+						</div>
+						<div class="message-data">
+							<i class="message-data-time">10:14 AM</i>
+							<span class="message-data-name">Other</span>
+						</div>
+					</li>
+					<li class="message-wrapper clearfix">
+						<div class="message my-message">
+							<p>...sadasdadsadasdasdsadasdasfaedsdasfqeqdsafweafsdaesDcasFdqas</p>
+						</div>
+						<div class="message-data">
+							<i class="message-data-time">10:14 AM</i>
+							<span class="message-data-name">Amanda</span>
 						</div>
 					</li>
 				</ul>

@@ -17,9 +17,9 @@ $_['session_autostart'] = false;
 
 // Actions
 $_['action_pre_action'] = array(
-	// 'startup/login',
 	'startup/startup',
 	'startup/session',
+	'startup/login',
 	'startup/error',
 	'startup/seo_url',
 );
@@ -30,4 +30,4 @@ $_['action_default'] = 'common/home';
 // App settings
 
 $_['config_encryption'] = 'aloha';
-$_['config_compression'] = 6;
+$_['config_compression'] = 0;

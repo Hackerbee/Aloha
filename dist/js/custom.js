@@ -1,13 +1,12 @@
 $(document).ready(function() {
-	// $('#chatlist, #main, #messagebody, #messagelist').hide();
+	// $('#chatlist, #main, #messagebody, ul').hide();
 	// setTimeout(function(){
 	// 	$('body').addClass('loaded');
 	// 	$('#chatlist').fadeIn(1000);
 	// 	$('#main').fadeIn(1300);
 	// 	$('#messagebody').fadeIn(1600);
-	// 	$('#messagelist').fadeIn(1900);
+	// 	// $('ul').fadeIn(1900);
 	// }, 3000);
-
 });
 function addchat() {
 	$('#chatlist').append('<div class="container"> \
@@ -47,9 +46,13 @@ function toggleNav() {
 }
 
 function chip() {
+	$('.chip').unbind('click');
 	$('.chip').bind('click', function() {
 		$('.chip-open').removeClass('chip-open');
 		$(this).addClass('chip-open').removeClass('new-message');
+		$('ul').addClass('hidden');
+		$('ul#'+$(this).attr('id')).removeClass('hidden');
+		$('.nav-name').text($('#' + $(this).attr('id') + ' > i').text());
 	});
 };
 setInterval('chip()',500);
