@@ -383,7 +383,7 @@ a {
 /*    box-shadow: 0 0 10px #444753;*/
 }
 
-#onlinepanel {
+#searchpanel {
 	background-color: #444753;
 /*    box-shadow: 0 0 10px #444753;*/
 }
@@ -419,6 +419,23 @@ a {
     box-shadow: 0 0 10px rgba(0,0,0,0.2);
 	z-index: 20;
 	padding-top: 5px;
+}
+
+#controls {
+	display: inline;
+	transition: .8s .2s;
+}
+
+#inputpanel i {
+	font-size: xx-large;
+	top: -5px;
+	margin: 0 10px;
+	padding: 5px;
+}
+
+input[name='message']:focus + #controls {
+	opacity: 0;
+	transition: .2s;
 }
 
 #nav-wrapper {
@@ -505,41 +522,106 @@ a {
 }
 
 input[name="message"] {
-	width: 130px;
+	width: 59%;
 	margin-right: 10px;
 	display: inline-block;
 	-webkit-transition: width 0.4s ease-in-out;
 			transition: width 0.4s ease-in-out;
-	border-width: 1.5px;
-	border-color: #66afe9;
-	padding: 0.75rem 1.5rem;
-    font-size: 1.25rem;
-    border-radius: 0.3rem;
-    line-height: 1.25;
-    color: #55595c;
-    background-color: #fff;
-    background-image: none;
-    background-clip: padding-box;
-    border: 1px solid rgba(0, 0, 0, 0.15);
+	
 }
 
 /* When the input field gets focus, change its width to 100% */
 input[name="message"]:focus {
-	width: 90%;
+	width: 85%;
 	display: inline-block;
 }
-
-.input-btn {
-	left: -2.5vmin;
-	font-size: xx-large;
-	top: -5px;
+.doc-box i {
+	font-size: 30px;
+	padding: 5px;
 }
 
+.doc-box a {
+	text-decoration: none;
+	color: white;
+}
+
+.img-box img {
+	height: 200px;
+	width: 200px;
+	border: 5px solid #9575CD;
+	border-radius: 10px;
+}
+
+.my-img {
+	float: left;
+}
+
+.other-img {
+	float: right;
+}
+
+.img-box + .message-data {
+	position: relative;
+	display: block;
+	line-height: 1.85;
+	width: 100%;
+	clear: both;
+}
+
+.my-img + .message-data .message-data-name {
+	
+	position: absolute;
+	left: 2%;
+	float: left;
+}
+.my-img + .message-data .message-data-time {
+	
+	position: absolute;
+	left: 20%;
+	float: left;
+}
+
+.other-img + .message-data .message-data-name {
+	
+	position: absolute;
+	right: 2%;
+	float: right;
+}
+.other-img + .message-data .message-data-time {
+	
+	position: absolute;
+	right: 20%;
+	float: right;
+}
+
+.search-results li {
+	color: white;
+	display: block;
+	padding: 0.5rem 0.75rem;
+	// width: 85%;
+}
+// #usersearch {
+// 	width: 85%;
+// 	display: inline-block;
+// }
+
+// #usersearch + i {
+// 	position: relative;
+// 	margin-left: 1vmin;
+// 	color: white;
+// }
+
+
+	
 .message-wrapper {
 	display: block;
 	position: relative;
 }
-
+.img-wrapper {
+	display: block;
+	position: relative;
+	margin-bottom: 20px;
+}
 .message {
 	width: 83.33333333333333%;
 	letter-spacing: 0.25px;
@@ -594,10 +676,15 @@ input[name="message"]:focus {
 	float: right;
 }
 
-.message-data {	
+.message-fail {
+	background: #94C2ED;
+}
+
+.massage-data {	
 	position: relative;
 	display: block;
 	line-height: 1.85;
+	width: 100%;
 }
 
 .my-message + .message-data .message-data-name {
@@ -637,51 +724,30 @@ input[name="message"]:focus {
 	border-radius: 7px;
 	border: 2px solid #9575cd;
 	box-shadow: inset 0 0 1px #9575cd;
-
 }
 
-@-webkit-keyframes shake {
-		0%,50%,100%   { 
-			-webkit-transform: translateX(0);  /* Chrome, Opera 15+, Safari 3.1+ */
-				-ms-transform: translateX(0);  /* IE 9 */
-					transform: translateX(0);  /* Firefox 16+, IE 10+, Opera */
-		}
-		5% {
-			-webkit-transform: translateX(1vmax);  /* Chrome, Opera 15+, Safari 3.1+ */
-				-ms-transform: translateX(1vmax);  /* IE 9 */
-					transform: translateX(1vmax);  /* Firefox 16+, IE 10+, Opera */
-		}
-		10% {
-			-webkit-transform: translateX(0.1vmax);  /* Chrome, Opera 15+, Safari 3.1+ */
-				-ms-transform: translateX(0.1vmax);  /* IE 9 */
-					transform: translateX(0.1vmax);  /* Firefox 16+, IE 10+, Opera */
+@-webkit-keyframes visual {
+		0%,50%,100%   {
+			-webkit -opacity: 1;
+				-moz-opacity: 1; 
+					 opacity: 1;
 		}
 		25% {
-			-webkit-transform: translateX(0.75vmax);  /* Chrome, Opera 15+, Safari 3.1+ */
-				-ms-transform: translateX(0.75vmax);  /* IE 9 */
-					transform: translateX(0.75vmax);  /* Firefox 16+, IE 10+, Opera */
+			-webkit -opacity: 0.25;
+				-moz-opacity: 0.25; 
+					 opacity: 0.25;
 		}
 	}
-	@keyframes shake {
-		0%,50%,100%   { 
-			-webkit-transform: translateX(0);  /* Chrome, Opera 15+, Safari 3.1+ */
-				-ms-transform: translateX(0);  /* IE 9 */
-					transform: translateX(0);  /* Firefox 16+, IE 10+, Opera */
-		}
-		5% {
-			-webkit-transform: translateX(4vmax);  /* Chrome, Opera 15+, Safari 3.1+ */
-				-ms-transform: translateX(4vmax);  /* IE 9 */
-					transform: translateX(4vmax);  /* Firefox 16+, IE 10+, Opera */
-		}
-		10% {
-			-webkit-transform: translateX(1vmin);  /* Chrome, Opera 15+, Safari 3.1+ */
-				-ms-transform: translateX(1vmin);  /* IE 9 */
-					transform: translateX(1vmin);  /* Firefox 16+, IE 10+, Opera */
+	@keyframes visual {
+		0%,50%,100%   {
+			-webkit -opacity: 1;
+				-moz-opacity: 1; 
+					 opacity: 1;
 		}
 		25% {
-			-webkit-transform: translateX(2vmax);  /* Chrome, Opera 15+, Safari 3.1+ */
-				-ms-transform: translateX(2vmax);  /* IE 9 */
-					transform: translateX(2vmax);  /* Firefox 16+, IE 10+, Opera */
+			-webkit -opacity: 0.25;
+				-moz-opacity: 0.25; 
+					 opacity: 0.25;
 		}
 	}
 
@@ -747,8 +813,8 @@ input[name="message"]:focus {
 }
 
 .new-message {
-	-webkit-animation: shake 3s linear infinite; /* Chrome, Opera 15+, Safari 5+ */
-			animation: shake 3s linear infinite; /* Chrome, Firefox 16+, IE 10+, Opera */
+	-webkit-animation: visual 1s linear infinite; /* Chrome, Opera 15+, Safari 5+ */
+			animation: visual 1s linear infinite; /* Chrome, Firefox 16+, IE 10+, Opera */
 }
 
 @media screen and (max-width: 787px) {

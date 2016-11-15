@@ -1,6 +1,6 @@
 <?php
 $salt = "90046dee9";
-$str = "akash";
+$str = "dhavan";
 echo sha1($str);
 echo "<br/>";
 $str = "<br/><div></div>";

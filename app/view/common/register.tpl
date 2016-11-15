@@ -11,7 +11,8 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, target-densitydpi=device-dpi, shrink-to-fit=no, user-scalable=no">
 	<meta name="HandheldFriendly" content="true">
-	<title>Aloha - Login</title>
+	<title>Aloha -Signup</title>
+	<meta name="description" content="A brand new materialized Web Chat app.">
 
 	<!--iOS -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -32,39 +33,45 @@
 		<div class="form">
 			
 			<ul class="tab-group">
-				<li class="tab"><a href="<?php echo $signup; ?>">Sign Up</a></li>
-				<li class="tab active"><a href="#login">Log In</a></li>
+				<li class="tab active"><a href="#signup">Sign Up</a></li>
+				<li class="tab"><a href="<?php echo $login; ?>">Log In</a></li>
 			</ul>
 			
 			<div class="tab-content">
-
-				<div id="login">   
-					<h1>Welcome Back!</h1>
+				<div id="signup">   
+					<h1>Sign Up for Free</h1>
 					
 					<form action="<?php echo $action; ?>" method="post">
 					
+					<div class="top-row">
 						<div class="field-wrap">
+							<label>
+								Username<span class="req">*</span>
+							</label>
+							<input type="text" name="username" required autocomplete="off"/>
+						</div>
+					</div>
+
+					<div class="field-wrap">
 						<label>
-							Username<span class="req">*</span>
+							Email Address<span class="req">*</span>
 						</label>
-						<input type="text" name="username" required autocomplete="off"/>
+						<input type="email" name="email" required autocomplete="off"/>
 					</div>
 					
 					<div class="field-wrap">
 						<label>
-							Password<span class="req">*</span>
+							Set A Password<span class="req">*</span>
 						</label>
-						<input name="password" type="password" required autocomplete="off"/>
+						<input type="password" name="password" required autocomplete="off"/>
 					</div>
 					
-					<!-- <p class="forgot"><a href="#">Forgot Password?</a></p> -->
-					
-					<button type="submit" name="submit" class="button button-block">Log in</button>
+					<button type="submit" class="button button-block"/>Get Started</button>
 					
 					</form>
 
 				</div>
-
+				
 			</div><!-- tab-content -->
 			
 </div> <!-- /form -->

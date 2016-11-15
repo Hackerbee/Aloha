@@ -21,7 +21,7 @@ $_['action_pre_action'] = array(
 	'startup/session',
 	'startup/login',
 	'startup/error',
-	'startup/seo_url',
+	// 'startup/seo_url',
 );
 
 // Actions
@@ -31,3 +31,4 @@ $_['action_default'] = 'common/home';
 
 $_['config_encryption'] = 'aloha';
 $_['config_compression'] = 0;
+$_['config_seo_url'] = 0;

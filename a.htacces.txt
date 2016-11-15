@@ -7,7 +7,7 @@
 Options +FollowSymlinks
 
 # Prevent Directoy listing
-Options -Indexes
+# Options -Indexes
 
 # Prevent Direct Access to files
 <FilesMatch "(?i)((\.tpl|\.ini|\.log|(?<!robots)\.txt))">

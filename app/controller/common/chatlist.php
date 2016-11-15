@@ -1,24 +1,32 @@
 <?php
 class ControllerCommonChatlist extends Controller {
 	public function index() {
-		$data['chatheads'] = array(
-			array(
-				'id' => 'u1',
-				'src' => 'dist/img/img_avatar.png',
-				'name' => 'Oliver Queen',
-				),
-			array(
-				'id' => 'u2',
-				'src' => 'dist/img/img_avatar2.png',
-				'name' => 'Laurel Lance',
-				),
-			array(
-				'id' => 'u3',
-				'src' => 'dist/img/img_avatar.png',
-				'name' => 'Felicity Smoak',
-				),
-			);
+		if ($this->user->isLogged() && isset($this->request->get['token']) && ($this->request->get['token'] == $this->session->data['token'])) {
 
-		return $this->load->view('common/chatlist',$data);
+			$data['logout'] = $this->url->link('common/logout','token='.$this->session->data['token']);
+			
+			$data['token'] = $this->session->data['token'];
+		}
+		$this->load->model('tool/chat');
+
+		$results = $this->model_tool_chat->getContacts($this->user->isLogged());
+		$data['chatheads'] = array();
+
+		foreach ($results as $result) {
+			$data['chatheads'][] = array(
+					'id' => $result['contactId'],
+					'src' => 'dist/img/img_avatar.png',
+					'name' => $this->model_tool_chat->getContactName($result['contactId']),
+				);
+		}
+
+		if (!isset($this->request->get['q'])) {
+			$data['currid'] = null;
+			return $this->load->view('common/chatlist',$data);
+		} else {
+			$data['currid'] = $this->request->get['q'];
+		}
+		$data['messagedelete'] = $this->url->link('common/messagedelete','token='.$this->session->data['token']);
+		echo $this->load->view('common/chatlist',$data);
 	}
 }

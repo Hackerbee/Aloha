@@ -27,17 +27,17 @@ $('.form').find('input, textarea').on('keyup blur focus', function (e) {
 
 });
 
-$('.tab a').on('click', function (e) {
+// $('.tab a').on('click', function (e) {
 	
-	e.preventDefault();
+// 	e.preventDefault();
 	
-	$(this).parent().addClass('active');
-	$(this).parent().siblings().removeClass('active');
+// 	$(this).parent().addClass('active');
+// 	$(this).parent().siblings().removeClass('active');
 	
-	target = $(this).attr('href');
+// 	target = $(this).attr('href');
 
-	$('.tab-content > div').not(target).hide();
+// 	$('.tab-content > div').not(target).hide();
 	
-	$(target).fadeIn(600);
+// 	$(target).fadeIn(600);
 	
-});
+// });

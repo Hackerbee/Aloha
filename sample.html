@@ -42,17 +42,17 @@
 		<div id="chatlist" class="sidenav col-lg-3 col-md-3 col-sm-3">
 			<!-- <a href="javascript:void(0)" onclick="toggleNav('L')" class="sidenav-closebtn-left">&times;</a> -->
 			<div class="container"> 
-				<div id="user-25" class="chip online"> 
+				<div id="25" class="chip online"> 
 					<img src="dist/img/img_avatar.png" alt="Person" class="img-responsive"> 
 					<span class="closebtn" onclick="event.stopPropagation();$(this).parent().hide();">&times;</span>
-					<i id="user-25" class="text-clip">Oliver Queen</i>
+					<i id="25" class="text-clip">Oliver Queen</i>
 				</div> 
 			</div>
 			<div class="container"> 
-				<div id="user-26" class="chip offline new-message">
+				<div id="26" class="chip offline new-message">
 					<img src="dist/img/img_avatar.png" alt="Person" class="img-responsive"> 
 					<span class="closebtn" onclick="event.stopPropagation();$(this).parent().hide();">&times;</span> 
-					<i id="user-26" class="text-clip">Amanda Waller</i>
+					<i id="26" class="text-clip">Amanda Waller</i>
 				</div> 
 			</div>
 		</div>
@@ -73,10 +73,66 @@
 					<button class="btn btn-primary btn-sm" onclick="addonline()">add online list</button>
 					<button class="btn btn-primary btn-sm" onclick="addmessage()">add message</button>
 				</div><br/>
-				<ul id="user-25" class="container-fluid hidden">
+				<ul id="u25" class="container-fluid hidden">
 					<li class="message-wrapper clearfix">
 						<div class="date-separator">29th September, 2015</div>
 					</li>
+					<li class="img-wrapper clearfix">
+						<div class="img-box my-img">
+							<a href="dist/img/img_avatar2.png" download>
+								<img class="img-responsive"  src="dist/img/img_avatar2.png" />
+							</a>
+						</div>
+						<div class="message-data">
+							<i class="message-data-time">10:14 AM</i>
+							<span class="message-data-name">Oliver</span>
+						</div>
+					</li>
+					<li class="img-wrapper clearfix">
+						<div class="img-box other-img">
+							<a href="dist/img/img_avatar.png" download>
+								<img class="img-responsive"  src="dist/img/img_avatar.png" />
+							</a>
+						</div>
+						<div class="message-data">
+							<i class="message-data-time">10:14 AM</i>
+							<span class="message-data-name">Other</span>
+						</div>
+					</li>
+					<li class="message-wrapper clearfix">
+						<div class="message other-message push-right">
+							<p>...sadasdadsadasdasdsadasdasfaedsdasfqeqdsafweafsdaesDcasFdqas</p>
+						</div>
+						<div class="message-data">
+							<i class="message-data-time">10:14 AM</i>
+							<span class="message-data-name">Other</span>
+						</div>
+					</li>
+					<li class="message-wrapper clearfix">
+						<div class="doc-box message my-message">
+							<a href="system/storage/upload/pallete.css" download>
+								<i class="glyphicon glyphicon-file"></i>
+								pallete.css
+							</a>
+						</div>
+						<div class="message-data">
+							<i class="message-data-time">10:14 AM</i>
+							<span class="message-data-name">Oliver</span>
+						</div>
+					</li>
+					<li class="message-wrapper clearfix">
+						<div class="doc-box message other-message">
+							<a href="system/storage/upload/pallete.css" download>
+								<i class="glyphicon glyphicon-file"></i>
+								pallete.css
+							</a>
+						</div>
+						<div class="message-data">
+							<i class="message-data-time">10:14 AM</i>
+							<span class="message-data-name">Other</span>
+						</div>
+					</li>
+
 					<li class="message-wrapper clearfix">
 						<div class="message my-message">
 							<p>...sadasdadsadasdasdsadasdasfaedsdasfqeqdsafweafsdaesDcasFdqas</p>
@@ -142,7 +198,7 @@
 					</li>
 				</ul>
 
-				<ul id="user-26" class="container-fluid hidden">
+				<ul id="u26" class="container-fluid hidden">
 					<li class="message-wrapper clearfix">
 						<div class="date-separator">29th September, 2015</div>
 					</li>
@@ -213,9 +269,14 @@
 			</div>
 
 			<div id="inputpanel" class="container-fluid">
-				<div class="container">
+				<div class="row">
 					<i class="input-btn glyphicon glyphicon-send"></i>
 					<input type="text" name="message" class="form-control form-control-lg">
+					<div id="controls">
+						<i class="glyphicon glyphicon-picture"></i>
+						<i class="glyphicon glyphicon-music"></i>
+						<i class="glyphicon glyphicon-file"></i>
+					</div>
 				</div>
 			</div>
 		</div>

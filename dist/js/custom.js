@@ -1,4 +1,7 @@
 $(document).ready(function() {
+
+
+
 	// $('#chatlist, #main, #messagebody, ul').hide();
 	// setTimeout(function(){
 	// 	$('body').addClass('loaded');
@@ -7,52 +10,43 @@ $(document).ready(function() {
 	// 	$('#messagebody').fadeIn(1600);
 	// 	// $('ul').fadeIn(1900);
 	// }, 3000);
+	
 });
-function addchat() {
-	$('#chatlist').append('<div class="container"> \
-								<div class="chip"> \
-									<img src="dist/img/img_avatar.png" alt="Person" height="96" weight="96" class="img-responsive"> \
-									John Doe \
-									<span class="closebtn" onclick="event.stopPropagation();$(this).parent().hide();">&times;</span> \
-								</div> \
-							</div>');
-}
-function addonline() {
-	$('#onlinepanel').append('<div class="container"> \
-								<div class="chip"> \
-									<img src="dist/img/img_avatar.png" alt="Person" height="96" weight="96" class="img-responsive"> \
-									John Doe \
-									<span class="closebtn" onclick="event.stopPropagation();$(this).parent().hide();">&times;</span> \
-								</div> \
-							</div>');
-}
 
-function addmessage() {
-	$('#messagelist').prepend('<li class="message-wrapper clearfix"> \
+function addmessage(val) {
+	var id = $('.chip-open').attr('id');
+	var d = new Date();
+	var date = d.getHours() +':'+ d.getMinutes();
+	$('ul#u'+id).append('<li id="sent" class="message-wrapper clearfix"> \
 									<div class="message my-message"> \
-										<p>...sadasdadsadasdasdsadasdasfaedsdasfqeqdsafweafsdaesDcasFdqas</p> \
+										<p>'+val+'</p> \
 									</div> \
 									<div class="message-data"> \
-										<i class="message-data-time">10:14 AM</i> \
-										<span class="message-data-name">Me</span> \
+										<i class="message-data-time">'+date+'</i> \
+										<span class="message-data-name"></span> \
 									</div> \
 								</li>');
 }
+
+
+
+$('input[name="message"]').on('keypress',function(e) {
+	if(e.which === 13) {
+		var val = $(this).val();
+		// alert(val);
+		addmessage(val);
+		$('.input-btn').trigger('click');
+		$("#messagebody").animate({ scrollTop: $('#messagebody').prop("scrollHeight")}, 0);
+		// $(this).val('');
+	};
+});
 // var img = $('<img class="img-responsive" />').attr('src', json['path']).on('load',function(){ $('#loadimg').html(img); });
 
 function toggleNav() {
-	$('#onlinepanel').toggleClass('push-lg-3 push-md-3 push-sm-3 sidenav-closed sidenav-open');
+	$('.sidenav').toggleClass('push-lg-3 push-md-3 push-sm-3 sidenav-closed sidenav-open');
 	$('#main').toggleClass('col-lg-6 col-md-6 col-sm-6 col-lg-9 col-md-9 col-sm-9');
 }
 
-function chip() {
-	$('.chip').unbind('click');
-	$('.chip').bind('click', function() {
-		$('.chip-open').removeClass('chip-open');
-		$(this).addClass('chip-open').removeClass('new-message');
-		$('ul').addClass('hidden');
-		$('ul#'+$(this).attr('id')).removeClass('hidden');
-		$('.nav-name').text($('#' + $(this).attr('id') + ' > i').text());
-	});
-};
-setInterval('chip()',500);
+var id = $('.chip').first().addClass('chip-open').attr('id');
+$('ul').not('.search-results').addClass('hidden');
+$('ul#u'+id).removeClass('hidden');

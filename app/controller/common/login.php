@@ -19,7 +19,7 @@ Class ControllerCommonLogin extends Controller {
 		}
 
 		if ((isset($this->session->data['token']) && !isset($this->request->get['token'])) || ((isset($this->request->get['token']) && (isset($this->session->data['token']) && ($this->request->get['token'] != $this->session->data['token']))))) {
-			$this->error['warning'] = 'Wrong token!';
+			$this->error['warning'] = '<p class="alert alert-warning" style="align:center;width:100%">Wrong token!</p>';
 		}
 
 		if (isset($this->error['warning'])) {
@@ -37,6 +37,7 @@ Class ControllerCommonLogin extends Controller {
 		}
 
 		$data['action'] = $this->url->link('common/login', '', true);
+		$data['signup'] = $this->url->link('common/register', '', true);
 
 		if (isset($this->request->post['username'])) {
 			$data['username'] = $this->request->post['username'];
@@ -81,7 +82,7 @@ Class ControllerCommonLogin extends Controller {
 
 	protected function validate() {
 		if (!isset($this->request->post['username']) || !isset($this->request->post['password']) || !$this->user->login($this->request->post['username'], html_entity_decode($this->request->post['password'], ENT_QUOTES, 'UTF-8'))) {
-			$this->error['warning'] = 'Error in login';
+			$this->error['warning'] = '<p class="alert alert-warning" style="align:center;width:100%">Error in login</p>';
 		}
 
 		return !$this->error;

@@ -4,7 +4,7 @@ $_['site_base']            = '';
 $_['site_ssl']             = false;
 
 // Url
-$_['url_autostart']        = true;
+$_['url_autostart']        = false;
 
 // // Language
 // $_['language_default']     = 'en-gb';
@@ -37,7 +37,7 @@ $_['cache_type']           = 'file'; // apc, file or mem
 $_['cache_expire']         = 3600;
 
 // Session
-$_['session_autostart']    = true;
+$_['session_autostart']    = false;
 $_['session_name']         = 'PHPSESSID';
 
 // Template

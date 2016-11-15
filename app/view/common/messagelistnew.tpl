@@ -1,5 +1,4 @@
 <?php foreach($rows as $row) { ?>
-<ul id="u<?php echo $row['contactid']; ?>" class="container-fluid hidden">
 <?php krsort($row['messages']); ?>
 	<?php   foreach($row['messages'] as $message) { ?>
 	<?php		switch($message['type']) {
@@ -58,12 +57,12 @@
 						$data = $data =	'<a href="'.$message['text'].'" download><i class="glyphicon glyphicon-music"  src="'.$message['text'].'" /></i>'.strtolower(substr(strrchr($message['text'], '/'), 1)).'</a>';
 						$flag = 1;
 						break;
-
+						
 					default:
 						echo "error<br/>";
 
 				} ?>
-					<li id="m<?php echo $message['id']; ?>" class="<?php echo $wrapper; ?> clearfix">
+					<li id="m<?php echo $message['id']; ?>" parent-id="u<?php echo $row['contactid']; ?>" class="<?php echo $wrapper; ?> clearfix">
 						<div class="<?php echo $type.' '.$who; ?>">
 	<?php					echo $data; ?>
 						</div>
@@ -75,5 +74,4 @@
 	<?php			} ?>
 					</li>
 	<?php	} ?>
-</ul>
 <?php } ?>

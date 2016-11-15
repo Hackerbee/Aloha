@@ -22,12 +22,14 @@ class Url {
 		
 		if ($args) {
 			if (is_array($args)) {
-				$url .= '&amp;' . http_build_query($args);
+				$url .= '&' . http_build_query($args);
 			} else {
-				$url .= str_replace('&', '&amp;', '&' . ltrim($args, '&'));
+				$url .= str_replace('&amp;', '&', '&' . ltrim($args, '&'));
 			}
 		}
-		
+
+		$url = str_replace('&amp;', '&', $url );
+
 		foreach ($this->rewrite as $rewrite) {
 			$url = $rewrite->rewrite($url);
 		}
