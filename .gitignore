@@ -16,4 +16,9 @@ build/
 doc/*.txt
 # ignore all .pdf files in the doc/ directory
 doc/**/*.pdf
+
 *.log
+system/storage/
+system/storage/**/*.*
+ignore/
+index.html

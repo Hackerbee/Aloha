@@ -1,0 +1,18 @@
+{	
+	"chatlist":[  
+		{
+			"op" 	: "add",
+			"id" 	: "5", 
+			"class" : "offline chip-open",
+			"src" 	: "dist/img/img_avatar2.png",
+			"alt" 	: "person",
+			"name" 	: "Altoo123" 
+		},
+		{
+			"op" 	: "status",
+			"id" 	: "1", 
+			"class" : "chip offline"
+		}
+	],
+	"messagelist" : ""
+}

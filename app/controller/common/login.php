@@ -13,6 +13,8 @@ Class ControllerCommonLogin extends Controller {
 			
 			if (isset($this->request->post['redirect']) && (strpos($this->request->post['redirect'], HTTP_SERVER) === 0 || strpos($this->request->post['redirect'], HTTPS_SERVER) === 0)) {
 				$this->response->redirect($this->request->post['redirect'] . '&token=' . $this->session->data['token']);
+			} else if (isset($this->session->data['redirect']) && (strpos($this->session->data['redirect'], HTTP_SERVER) === 0 || strpos($this->session->data['redirect'], HTTPS_SERVER) === 0)) {
+				$this->response->redirect($this->session->data['redirect'] . '&token=' . $this->session->data['token']);
 			} else {
 				$this->response->redirect($this->url->link('common/home', 'token=' . $this->session->data['token'], true));
 			}

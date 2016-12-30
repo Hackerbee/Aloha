@@ -17,11 +17,11 @@ $_['session_autostart'] = false;
 
 // Actions
 $_['action_pre_action'] = array(
-	'startup/startup',
 	'startup/session',
-	'startup/login',
+	'startup/startup',
+	// 'startup/login',
 	'startup/error',
-	// 'startup/seo_url',
+	'startup/seo_url',
 );
 
 // Actions

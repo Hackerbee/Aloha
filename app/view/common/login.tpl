@@ -9,17 +9,17 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, target-densitydpi=device-dpi, shrink-to-fit=no, user-scalable=no">
+	<meta name="viewport" content="width=commonice-width, initial-scale=1.0, maximum-scale=1.0, target-densitydpi=commonice-dpi, shrink-to-fit=no, user-scalable=no">
 	<meta name="HandheldFriendly" content="true">
 	<title>Aloha - Login</title>
 
 	<!--iOS -->
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="viewport" content="width=commonice-width, initial-scale=1.0">
 
 	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
 	<!-- Bootstrap -->
-	<link rel="stylesheet" href="dist/css/bootstrap/bootstrap.css">
+	<!-- <link rel="stylesheet" href="dist/css/bootstrap/bootstrap.css"> -->
 
 	<!-- Custom -->
 	<!-- <link rel="stylesheet" href="dist/css/custom.css"> -->

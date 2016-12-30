@@ -31,7 +31,7 @@ class ControllerStartupStartup extends Controller {
 		$user = new User($this->registry);
 		$this->registry->set('user', $user);
 
-		// // Encryption
-		$this->registry->set('encryption', new Encryption($this->config->get('config_encryption')));				
+		// Encryption
+		$this->registry->set('encryption', new Encryption($this->config->get('config_encryption')));			
 	}
 }

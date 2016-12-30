@@ -6,6 +6,9 @@ class ControllerCommonHome extends Controller {
 			$data['logout'] = $this->url->link('common/logout','token='.$this->session->data['token']);
 			
 			$data['token'] = $this->session->data['token'];
+		} else {
+			$this->session->data['redirect'] = $this->url->link('common/home');
+			$this->response->redirect($this->url->link('common/login'));
 		}
 		$data['chatlist'] = $this->load->controller('common/chatlist');
 		$data['messagelist'] = $this->load->controller('common/messagelist');

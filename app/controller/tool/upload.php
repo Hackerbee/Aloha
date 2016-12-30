@@ -1,6 +1,7 @@
 <?php
 class ControllerToolUpload extends Controller {
 	public function index() {
+		$this->load->model('tool/image');
 		$json = array();
 
 		if (!empty($this->request->files['file']['name']) && is_file($this->request->files['file']['tmp_name'])) {
@@ -60,19 +61,14 @@ class ControllerToolUpload extends Controller {
 		if (!$json) {
 			$file = token(20) . '.' . strtolower(substr(strrchr($filename, '.'), 1));
 
-			if(isset($this->request->get['path'])) {
-				move_uploaded_file($this->request->files['file']['tmp_name'], DIR_IMAGE . $this->request->get['path'] . '/' . $file);
-				$dir = 'image/'.$this->request->get['path'].'/';
-			} else {
-				move_uploaded_file($this->request->files['file']['tmp_name'], DIR_UPLOAD . $file);
-				$dir = 'system/storage/upload/';
-			}
+			move_uploaded_file($this->request->files['file']['tmp_name'], DIR_IMAGE . $file);
 
 			// Hide the uploaded file name so people can not link to it directly.
 			$this->load->model('tool/upload');
 
 			$json['code'] = $this->model_tool_upload->addUpload($filename, $file);
-			$json['path'] = $dir.$file;
+			$json['path'] = SDIR_IMAGE . $file;
+			//$json['path'] = $this->model_tool_image->resize(DIR_IMAGE.$file,$w,$h);
 			$json['success'] = 'Uploaded Successfully!';
 		}
 
@@ -140,19 +136,13 @@ class ControllerToolUpload extends Controller {
 		if (!$json) {
 			$file = token(20) . '.' . strtolower(substr(strrchr($filename, '.'), 1));
 
-			if(isset($this->request->get['path'])) {
-				move_uploaded_file($this->request->files['file']['tmp_name'], DIR_IMAGE . $this->request->get['path'] . '/' . $file);
-				$dir = 'image/'.$this->request->get['path'].'/';
-			} else {
-				move_uploaded_file($this->request->files['file']['tmp_name'], DIR_UPLOAD . $file);
-				$dir = 'system/storage/upload/';
-			}
+			move_uploaded_file($this->request->files['file']['tmp_name'], DIR_DOC . $file);
 
 			// Hide the uploaded file name so people can not link to it directly.
 			$this->load->model('tool/upload');
 
 			$json['code'] = $this->model_tool_upload->addUpload($filename, $file);
-			$json['path'] = $dir.$file;
+			$json['path'] = SDIR_DOC.$file;
 			$json['success'] = 'Uploaded Successfully!';
 		}
 
@@ -220,19 +210,13 @@ class ControllerToolUpload extends Controller {
 		if (!$json) {
 			$file = token(20) . '.' . strtolower(substr(strrchr($filename, '.'), 1));
 
-			if(isset($this->request->get['path'])) {
-				move_uploaded_file($this->request->files['file']['tmp_name'], DIR_IMAGE . $this->request->get['path'] . '/' . $file);
-				$dir = 'image/'.$this->request->get['path'].'/';
-			} else {
-				move_uploaded_file($this->request->files['file']['tmp_name'], DIR_UPLOAD . $file);
-				$dir = 'system/storage/upload/';
-			}
-
+			move_uploaded_file($this->request->files['file']['tmp_name'], DIR_AUDIO . $file);
+			
 			// Hide the uploaded file name so people can not link to it directly.
 			$this->load->model('tool/upload');
 
 			$json['code'] = $this->model_tool_upload->addUpload($filename, $file);
-			$json['path'] = $dir.$file;
+			$json['path'] = SDIR_AUDIO.$file;
 			$json['success'] = 'Uploaded Successfully!';
 		}
 

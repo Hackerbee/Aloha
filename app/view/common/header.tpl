@@ -6,28 +6,30 @@
 <html class="no-js">
 <!--<![endif]-->
 
+<script type="text/javascript">
+	document.getElementsByTagName('html')[0].className = "js";
+</script>
+
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, target-densitydpi=device-dpi, shrink-to-fit=no, user-scalable=no">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, shrink-to-fit=no, user-scalable=no">
+	<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, target-densitydpi=device-dpi, shrink-to-fit=no, user-scalable=no"> -->
 	<meta name="HandheldFriendly" content="true">
 	<title>Aloha - Welcome!</title>
-	<meta name="description" content="A brand new materialized Web Chat app.">
+	<meta name="description" content="A brand new materialized(really??) Web Chat app.">
 
 	<!--iOS -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
-	<!-- Bootstrap -->
-	<link rel="stylesheet" href="dist/css/bootstrap/bootstrap.css">
-
-	<!-- Custom	-->
-	<link rel="stylesheet" href="dist/css/custom.css">
-	
+	<style type="text/css">
+	#loader:after,#loader:before{content:"";position:absolute}#loader-wrapper{position:fixed;top:0;left:0;width:100%;height:100%;z-index:1000}#loader{display:block;position:relative;left:50%;top:50%;width:150px;height:150px;margin:-75px 0 0 -75px;border-radius:50%;border:3px solid transparent;border-top-color:#3498db;-webkit-animation:spin 2s linear infinite;animation:spin 2s linear infinite;z-index:1002}#loader:before{top:5px;left:5px;right:5px;bottom:5px;border-radius:50%;border:3px solid transparent;border-top-color:#e74c3c;-webkit-animation:spin 3s linear infinite;animation:spin 3s linear infinite}#loader:after{top:15px;left:15px;right:15px;bottom:15px;border-radius:50%;border:3px solid transparent;border-top-color:#f9c922;-webkit-animation:spin 1.5s linear infinite;animation:spin 1.5s linear infinite}@-webkit-keyframes spin{0%{-webkit-transform:rotate(0);-ms-transform:rotate(0);transform:rotate(0)}100%{-webkit-transform:rotate(360deg);-ms-transform:rotate(360deg);transform:rotate(360deg)}}@keyframes spin{0%{-webkit-transform:rotate(0);-ms-transform:rotate(0);transform:rotate(0)}100%{-webkit-transform:rotate(360deg);-ms-transform:rotate(360deg);transform:rotate(360deg)}}#loader-wrapper .loader-section{position:fixed;top:0;width:51%;height:100%;background:#222;z-index:1000;-webkit-transform:translateX(0);-ms-transform:translateX(0);transform:translateX(0)}#loader-wrapper .loader-section.section-left{left:0}#loader-wrapper .loader-section.section-right{right:0}#loader-wrapper #loaderbg{position:fixed;top:0;width:100%;height:100%;background:#222;z-index:1001;-webkit-transform:translateX(0);-ms-transform:translateX(0);transform:translateX(0)}.loaded #loader-wrapper .loader-section.section-left{-webkit-transform:translateX(-100%);-ms-transform:translateX(-100%);transform:translateX(-100%);-webkit-transition:all .7s .3s cubic-bezier(1,0,.645,1);transition:all .7s .3s cubic-bezier(1,0,.645,1)}.loaded #loader-wrapper .loader-section.section-right{-webkit-transform:translateX(100%);-ms-transform:translateX(100%);transform:translateX(100%);-webkit-transition:all .7s .3s cubic-bezier(1,0,.645,1);transition:all .7s .3s cubic-bezier(1,0,.645,1)}.loaded #loader,.loaded #loader-wrapper #loaderbg{opacity:0;-webkit-transition:all .75s linear;transition:all .75s linear}.loaded #loader-wrapper{visibility:hidden;-webkit-transform:translateY(-100%);-ms-transform:translateY(-100%);transform:translateY(-100%);-webkit-transition:all .75s 1s linear;transition:all .75s 1s linear}.no-js #loader-wrapper{display:none}
+	</style>
 </head>
 
 <body>
-	<!--[if lt IE 8]>
+<!--[if lt IE 8]>
 <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
 <![endif]-->
