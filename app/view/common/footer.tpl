@@ -24,10 +24,22 @@
 	
 	$(document).ready(function() {
 		$('body').addClass('loaded');
+		
+		var p = $('.progress-bar');
+		x = f = 0;
+		var func = function() {
+			if (x <= 100) {if (f) {x = x - 20;} else {x = x + 20;}}
+			if (x == 0 || x == 100) {if (f) {f = 0} else {f = 1}}
+			p.css('width',x+'%');
+			$('#percentage').html(Math.floor(x)+'%');
+		}
+		// setInterval(func,1000);
+
 		$('#inputpanel').find('.row:first-child').hide();
+		
 		$("#messagebody").animate({ scrollTop: $('#messagebody').prop("scrollHeight")}, 150);
-		chatlistid = setInterval(chatlist,2000);
-		messagelistid = setInterval(messagelist,2000);
+		chatlistid = setInterval(chatlist,2500);
+		messagelistid = setInterval(messagelist,2500);
 	});
 
 	var f = $('.chip').first();
@@ -330,7 +342,14 @@
 
 	$('#options-btn').click(function(e) {
 		e.preventDefault();
-		$('#inputpanel').find('.row:first-child').toggle('fast');
+		var ip = $('#inputpanel');
+		if (ip.css('height') == '100px') {
+			ip.css('height','50px');
+			ip.find('.row:first-child').fadeToggle(100);
+		} else {
+			ip.css('height','100px');
+			ip.find('.row:first-child').delay(100,'fx').fadeToggle(100);
+		}
 	});
 
 	$('#send-btn').on('click',function() {
@@ -455,6 +474,36 @@
 		});
 	});
 
+	$('button[ul-id]').click(function(e) {
+		e.preventDefault();
+		var self = this;
+		var old = $(this).attr('ul-id');
+		var id = $(this).attr('m-id');
+		queue.add({
+			url: '<?php echo $messagereceive; ?>&old='+old+'&id='+id,
+			type: 'GET',
+			datatype: 'text',
+			beforeSend: function() {
+				$(self).html('<i class="glyphicon glyphicon-refresh"></i>').attr('disabled', 'disabled');;
+			},
+			success: function(response) {
+				// $("#messagebody").animate({ scrollTop: $('#messagebody').prop("scrollHeight")}, 100);
+				$(self).after(response);
+				var l = Math.ceil($('.clearfix',response).prevObject.length/2);
+				console.log($('.clearfix',response));
+				$(self).attr('m-id', id - l);
+				$(self).parent().children('[parent-id]').removeAttr('parent-id');
+				if (id-l == 1) { $(self).remove(); }
+			},
+			complete: function() {
+				$(self).html('Load Older Messages').removeAttr('disabled');
+			},
+			error: function(xhr, ajaxOptions, thrownError) {
+				alert('Ajax error messagelist' + thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+			}
+		});
+	});
+
 	function addContact(id) {
 		var q = <?php echo $userid; ?>;
 		// alert(id+' '+q);
@@ -473,13 +522,25 @@
 	// image defer load
 	// var img = $('<img class="img-responsive" />').attr('src', json['path']).on('load',function(){ $('#loadimg').html(img); });
 
-	function toggleNav() {
-		$('.sidenav').toggleClass('push-lg-3 push-md-3 push-sm-3 sidenav-closed sidenav-open');
-		$('#main').toggleClass('col-lg-6 col-md-6 col-sm-6 col-lg-9 col-md-9 col-sm-9');
+	function toggleNav(id) {
+		var open = $('.sidenav-open');
+		if (!open.length) {
+			$('#rightsidebar').show(0);
+			$('#'+id).toggleClass('sidenav-open sidenav-closed');
+			$('#messagebody').removeClass('col-lg-12 col-md-12 col-sm-12').addClass('col-lg-9 col-md-9 col-sm-9');
+		} else {
+			open.removeClass('sidenav-open').addClass('sidenav-closed');
+			if (open.attr('id') == id) {
+				$('#messagebody').removeClass('col-lg-9 col-md-9 col-sm-9').addClass('col-lg-12 col-md-12 col-sm-12');
+				$('#rightsidebar').hide(300);
+			} else {
+				$('#'+id).toggleClass('sidenav-closed sidenav-open');	
+			}
+		}
 	}
 
 	function deferLoad() {
-		$('#chatlist img').each(function() {
+		$('img[data-src]').each(function() {
 			var i = $(this);
 			i.attr('src',i.data('src'));
 		});

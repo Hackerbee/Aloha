@@ -31,14 +31,17 @@ class ControllerCommonMessagelist extends Controller {
 		$data['sender'] = $this->user->getId();
 		$this->load->model('tool/chat');
 
-		if(!isset($this->request->get['q'])) {
-			$data['rows'] = $this->model_tool_chat->messageReceive($data['sender']);
-			$this->model_tool_chat->messageReceiveNotify($data['sender']);
-			return $this->load->view('common/messagelist', $data);
-		} else {
+		if(isset($this->request->get['q'])) {
 			$data['rows'] = $this->model_tool_chat->messageReceiveNew($data['sender']);
 			$this->model_tool_chat->messageReceiveNotify($data['sender']);
 			echo $this->load->view('common/messagelistnew', $data);
+		} elseif (isset($this->request->get['old']) && isset($this->request->get['id'])) {
+			$data['rows'] = $this->model_tool_chat->messageReceiveOld($data['sender'],$this->request->get['old'],$this->request->get['id']);
+			echo $this->load->view('common/messagelistnew', $data);
+		} else {
+			$data['rows'] = $this->model_tool_chat->messageReceive($data['sender']);
+			$this->model_tool_chat->messageReceiveNotify($data['sender']);
+			return $this->load->view('common/messagelist', $data);
 		}
 	}
 }

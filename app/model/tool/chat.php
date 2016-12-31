@@ -69,21 +69,21 @@ class ModelToolChat extends Model  {
 		return $this->db->query('SELECT username FROM users WHERE userid ='.$id)->row['username'];
 	}
 
-	public function messageReceive($user){
+	public function messageReceive($user = 0){
 		$contacts = $this->db->query("SELECT contactId from u". $user)->rows;
 		$data = array();
 		foreach($contacts as $contact){
 			if($contact['contactId'] > $user){
 				$data[] = array('contactid' => $contact['contactId'],
 								'username' 	=> $this->getUserById($contact['contactId']),
-								'messages' => $this->db->query("SELECT messgeId as id, message as text , messagetype as type, time as date, sender FROM `u" . $user . ":u" . $contact['contactId'] . "` ORDER BY time DESC LIMIT  20")->rows,
+								'messages' => $this->db->query("SELECT messgeId as id, message as text , messagetype as type, time as date, sender FROM `u" . $user . ":u" . $contact['contactId'] . "` ORDER BY messgeId DESC LIMIT  20")->rows,
 								);
 				
 			}
 			else{
 				$data[] = array('contactid' => $contact['contactId'],
 								'username' 	=> $this->getUserById($contact['contactId']),
-								'messages' => $this->db->query("SELECT messgeId as id, message as text , messagetype as type, time as date, sender FROM `u" . $contact['contactId'] . ":u" . $user . "` ORDER BY time DESC LIMIT  20")->rows,
+								'messages' => $this->db->query("SELECT messgeId as id, message as text , messagetype as type, time as date, sender FROM `u" . $contact['contactId'] . ":u" . $user . "` ORDER BY messgeId DESC LIMIT  20")->rows,
 								);
 			}
 			
@@ -91,25 +91,44 @@ class ModelToolChat extends Model  {
 		return $data;
 	}
 
-	public function messageReceiveNew($user){
+	public function messageReceiveNew($user = 0){
 		$contacts = $this->db->query("SELECT contactId from u". $user)->rows;
 		$data = array();
 		foreach($contacts as $contact){
 			if($contact['contactId'] > $user){
 				$data[] = array('contactid' => $contact['contactId'],
 								'username' 	=> $this->getUserById($contact['contactId']),
-								'messages' 	=> $this->db->query("SELECT messgeId as id, message as text , messagetype as type, time as date, sender FROM `u" . $user . ":u" . $contact['contactId'] . "` WHERE sender = ".$contact['contactId']." AND status LIKE 'PENDING' ORDER BY time DESC LIMIT  20")->rows,
+								'messages' 	=> $this->db->query("SELECT messgeId as id, message as text , messagetype as type, time as date, sender FROM `u" . $user . ":u" . $contact['contactId'] . "` WHERE sender = ".$contact['contactId']." AND status LIKE 'PENDING' ORDER BY messgeId DESC LIMIT  20")->rows,
 								);
 				
 			}
 			else{
 				$data[] = array('contactid' => $contact['contactId'],
 								'username' 	=> $this->getUserById($contact['contactId']),
-								'messages' 	=> $this->db->query("SELECT messgeId as id, message as text , messagetype as type, time as date, sender FROM `u" . $contact['contactId'] . ":u" . $user . "` WHERE sender = ".$contact['contactId']." AND status LIKE 'PENDING' ORDER BY time DESC LIMIT  20")->rows,
+								'messages' 	=> $this->db->query("SELECT messgeId as id, message as text , messagetype as type, time as date, sender FROM `u" . $contact['contactId'] . ":u" . $user . "` WHERE sender = ".$contact['contactId']." AND status LIKE 'PENDING' ORDER BY messgeId DESC LIMIT  20")->rows,
 								);
 			}
 			
 		}
+		return $data;
+	}
+
+	public function messageReceiveOld($user = 0,$contact = 0,$id = 0){
+		$data = array();
+		if($contact > $user){
+			$data[] = array('contactid' => $contact,
+							'username' 	=> $this->getUserById($contact),
+							'messages' 	=> $this->db->query("SELECT messgeId as id, message as text , messagetype as type, time as date, sender FROM `u" . $user . ":u" . $contact . "` WHERE messgeId < ". $this->db->escape($id) . " ORDER BY messgeId DESC LIMIT 20")->rows,
+							);
+			
+		}
+		else{
+			$data[] = array('contactid' => $contact,
+							'username' 	=> $this->getUserById($contact),
+							'messages' 	=> $this->db->query("SELECT messgeId as id, message as text , messagetype as type, time as date, sender FROM `u" . $contact . ":u" . $user . "` WHERE messgeId < " . $this->db->escape($id) . " ORDER BY messgeId DESC LIMIT 20")->rows,
+							);
+		}
+			
 		return $data;
 	}
 

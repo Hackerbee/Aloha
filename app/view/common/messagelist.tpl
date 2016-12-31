@@ -1,6 +1,7 @@
 <?php foreach($rows as $row) { ?>
-<ul id="chat<?php echo $row['contactid']; ?>" class="container-fluid hidden">
 <?php krsort($row['messages']); ?>
+<ul id="chat<?php echo $row['contactid']; ?>" class="container-fluid hidden">
+<button class="ml-btn" ul-id="<?php echo $row['contactid']; ?>" m-id="<?php echo $row['messages'][count($row['messages'])-1]['id']; ?>">Load Older Messages</button>
 	<?php   foreach($row['messages'] as $message) { ?>
 	<?php		switch($message['type']) {
 					case "date-separator":

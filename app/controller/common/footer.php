@@ -15,7 +15,7 @@ class ControllerCommonFooter extends Controller {
 			$data['messagesent'] = $this->url->link('common/messagesent','token='.$this->session->data['token']);
 
 			$data['messagereceive'] = $this->url->link('common/messagelist','token='.$this->session->data['token']);
-
+			
 			$data['logout'] = $this->url->link('common/logout','token='.$this->session->data['token']);
 			
 			$data['token'] = $this->session->data['token'];

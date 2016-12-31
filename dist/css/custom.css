@@ -221,6 +221,13 @@
 	user-select: none;
 }
 
+body {
+	font-family: "Josefin Sans SemiBold",Helvetica,Verdana,sans-serif !important;
+	-webkit-font-smoothing: subpixel-antialiased;
+	text-rendering: optimizeLegibility;	
+	// font-weight: 400;
+}
+
 li,
 div,
 p,
@@ -268,16 +275,18 @@ body {
 	width: 100%;
 }
 
+#rightsidebar i {
+	color: whitesmoke;
+}
+
+#messagebody,#rightsidebar,#chatlist {
+	transition: width 0.2s ease-in-out;
+}
+
 
 /* ========================================================================================================
 		chatlist and searchpanel
 ======================================================================================================== */
-
-#chatlist,
-#searchpanel {
-	background-color: #444753;
-	box-shadow: 0 0 5px #444753, inset 0 -20px 100px 50px #383a44;
-}
 
 #chatlist {
 	overflow: hidden;
@@ -302,29 +311,48 @@ body {
 	top: 0;
 	left: 0;
 	width: 100%;
-	height: 60px;
+	height: 50px;
 	border-radius: 0;
 	box-shadow: 0 0 10px #D9534F;
 	font-size: 2vmin;
 }
 
-.sidenav {
+.sidenav,#chatlist {
 	height: 100%;
 	top: 0;
-	z-index: 100;
+	// z-index: 100;
 	overflow-x: hidden;
 	padding-top: 80px;
-	box-shadow: inset 0 -20px 100px 50px #383a44;
+	background-color: #444753;
+	box-shadow: 0 0 5px #444753, inset 0 -20px 100px 50px #383a44;
+}
+
+#rightsidebar {
+	position: absolute;
+	height: 100%;
+	padding: 0;
+	right: 0;
+	z-index: 0;
+}
+
+#rightsidebar > .sidenav {
+	position: absolute;
+	width: 100%;
+	left: 0;
 }
 
 .sidenav-closed {
-	left: 100%;
-	right: -100%;
+	transition: opacity 0.1s ease-out;
+	// left: 110%;
+	// z-index: -5;
+	opacity: 0;
 }
 
 .sidenav-open {
-	left: auto;
-	right: 0;
+	transition: opacity 0.1s 0.15s ease-out;
+	// left: 0;
+	// z-index: 10;
+	opacity: 1;
 }
 
 // .sidenav-closed-left {
@@ -344,6 +372,10 @@ a.sidenav-closebtn {
 	right: 18px;
 	z-index: 100;
 	line-height: 50px;
+}
+
+a.btn-2 {
+	right: 48px;
 }
 
 a.sidenav-closebtn:hover {
@@ -483,9 +515,9 @@ a.sidnav-closebtn:active {
 
 #messagebody {
 	position: absolute;
-	top: 60px;
+	top: 50px;
 	padding-top: 2vmin;
-	width: 100%;
+	// width: 100%;
 	bottom: 0;
 	padding-bottom: 100px;
 	overflow-y: auto;
@@ -493,7 +525,7 @@ a.sidnav-closebtn:active {
 }
 
 #nav-wrapper {
-	height: 60px;
+	height: 50px;
 	width: 100%;
 	background-color: #9575CD;
 	box-shadow: 0 0 10px #9575CD;
@@ -722,14 +754,15 @@ a.sidnav-closebtn:active {
 	position: absolute;
 	bottom: 0;
 	left: 0;
-	// height: 60px;
+	height: 50px;
 	width: 100%;
 	background-color: #e5e5e5;
 	// border-top: 3px solid whitesmoke;
-	box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
 	z-index: 20;
 	// line-height: 50px;
 	padding: 5px;
+	transition: height 0.2s ease-in-out;
 }
 
 #inputpanel button {
@@ -739,7 +772,19 @@ a.sidnav-closebtn:active {
 }
 
 #inputpanel .row:first-child {
-	margin: 0 1vmin 1.25vmin 1vmin;
+	margin-bottom: 1.25vmin;
+	z-index: 5;
+}
+
+#inputpanel .row:nth-child(2) {
+	background-color: #e5e5e5;
+	z-index: 10;
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 5px;
+	// padding-top: 5px;
+	// box-shadow: 0 -2px 2px rgba(0, 0, 0, 0.1);
 }
 
 #send-btn,#options-btn {
@@ -756,8 +801,26 @@ a.sidnav-closebtn:active {
 	color: #373A3C;
 }
 
+#filename {
+	margin-top: 3px;
+}
+
 #percentage {
-	margin-bottom: 10px;
+	margin-top: 7px;
+	width: 6vmin;
+}
+
+.progress {
+	margin: 7px auto !important;
+}
+
+#filename,#percentage {
+	font-size: 20px !important;
+	font-family: "Josefin Sans" !important;
+	overflow: hidden;
+	text-overflow: clip;
+	white-space: nowrap;
+	text-align: right;
 }
 
 #controls > i {
@@ -774,204 +837,10 @@ input[name="message"] {
 	text-align: center;
 }
 
-#progress-bar-wrapper {
-	border-radius: 5px;
-	width: 100%;
-	height: 30px;
-}
-
 #progress-bar {
-	width: 76%;
 	height: 100%;
-	background-color: 
 }
 
-@-webkit-keyframes progress-bar-stripes {
-    from {
-        background-position: 1rem 0
-    }
-    to {
-        background-position: 0 0
-    }
-}
-
-@-o-keyframes progress-bar-stripes {
-    from {
-        background-position: 1rem 0
-    }
-    to {
-        background-position: 0 0
-    }
-}
-
-@keyframes progress-bar-stripes {
-    from {
-        background-position: 1rem 0
-    }
-    to {
-        background-position: 0 0
-    }
-}
-
-.progress {
-    display: block;
-    width: 100%;
-    height: 20px;
-    margin: 10px 0;
-}
-
-.progress[value] {
-    -webkit-appearance: none;
-    color: #0074d9;
-    border: 0;
-    -moz-appearance: none;
-    appearance: none
-}
-
-.progress[value]::-webkit-progress-bar {
-    background-color: #eee;
-    border-radius: .25rem
-}
-
-.progress[value]::-webkit-progress-value::before {
-    content: attr(value)
-}
-
-.progress[value]::-webkit-progress-value {
-    background-color: #0074d9;
-    border-top-left-radius: .25rem;
-    border-bottom-left-radius: .25rem
-}
-
-.progress[value="100"]::-webkit-progress-value {
-    border-top-right-radius: .25rem;
-    border-bottom-right-radius: .25rem
-}
-
-@media screen and (min-width:0\0) {
-    .progress {
-        background-color: #eee;
-        border-radius: .25rem
-    }
-    .progress-bar {
-        display: inline-block;
-        height: 1rem;
-        text-indent: -999rem;
-        background-color: #0074d9;
-        border-top-left-radius: .25rem;
-        border-bottom-left-radius: .25rem
-    }
-    .progress[width^="0"] {
-        min-width: 2rem;
-        color: #818a91;
-        background-color: transparent;
-        background-image: none
-    }
-    .progress[width="100%"] {
-        border-top-right-radius: .25rem;
-        border-bottom-right-radius: .25rem
-    }
-}
-
-.progress-striped[value]::-webkit-progress-value {
-    background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);
-    background-image: linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);
-    -webkit-background-size: 1rem 1rem;
-    background-size: 1rem 1rem
-}
-
-.progress-striped[value]::-moz-progress-bar {
-    background-image: linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);
-    background-size: 1rem 1rem
-}
-
-@media screen and (min-width:0\0) {
-    .progress-bar-striped {
-        background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);
-        background-image: -o-linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);
-        background-image: linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);
-        -webkit-background-size: 1rem 1rem;
-        		background-size: 1rem 1rem
-    }
-}
-
-.progress-animated {
-	 -webkit-animation: progress-bar-stripes 2s linear infinite;
-    		animation: progress-bar-stripes 2s linear infinite;
-}
-
-.progress-animated[value]::-webkit-progress-value {
-    -webkit-animation: progress-bar-stripes 2s linear infinite;
-    		animation: progress-bar-stripes 2s linear infinite;
-}
-
-.progress-animated[value]::-moz-progress-bar {
-    animation: progress-bar-stripes 2s linear infinite;
-}
-
-@media screen and (min-width:0\0) {
-    .progress-animated .progress-bar-striped {
-        -webkit-animation: progress-bar-stripes 2s linear infinite;
-       		 -o-animation: progress-bar-stripes 2s linear infinite;
-       			animation: progress-bar-stripes 2s linear infinite;
-    }
-}
-
-.progress-success[value]::-webkit-progress-value {
-    background-color: #5cb85c;
-}
-
-.progress-success[value]::-moz-progress-bar {
-    background-color: #5cb85c;
-}
-
-@media screen and (min-width:0\0) {
-    .progress-success .progress-bar {
-        background-color: #5cb85c;
-    }
-}
-
-.progress-info[value]::-webkit-progress-value {
-    background-color: #5bc0de;
-}
-
-.progress-info[value]::-moz-progress-bar {
-    background-color: #5bc0de;
-}
-
-@media screen and (min-width:0\0) {
-    .progress-info .progress-bar {
-        background-color: #5bc0de;
-    }
-}
-
-.progress-warning[value]::-webkit-progress-value {
-    background-color: #f0ad4e;
-}
-
-.progress-warning[value]::-moz-progress-bar {
-    background-color: #f0ad4e;
-}
-
-@media screen and (min-width:0\0) {
-    .progress-warning .progress-bar {
-        background-color: #f0ad4e;
-    }
-}
-
-.progress-danger[value]::-webkit-progress-value {
-    background-color: #d9534f;
-}
-
-.progress-danger[value]::-moz-progress-bar {
-    background-color: #d9534f;
-}
-
-@media screen and (min-width:0\0) {
-    .progress-danger .progress-bar {
-        background-color: #d9534f;
-    }
-}
 
 // input[name='message'] + #controls {
 // 	opacity: 1;
@@ -1053,9 +922,6 @@ input[name="message"] {
 	}
 	.message p,.text-clip {
 		font-size: 1.5vmin;
-	}
-	#controls {
-		width: 150px;
 	}
 	#controls i {
 		margin: 0 5px 10px 5px;
