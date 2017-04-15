@@ -5,6 +5,8 @@
 <script type="text/javascript">
 function clearChat(contactid){
 	if(confirm('Are you sure you want to Delete Chat ?')){
+		$('ul#chat'+contactid+' > li').remove()
+		$(this).parent().hide();
 		queue.add({
 				url:'<?php echo $messagedelete; ?>&receive='+contactid,
 				type: 'GET',
@@ -27,7 +29,7 @@ function clearChat(contactid){
 	<div id="<?php echo $chathead['id']; ?>" class="chip <?php echo $chathead['status']; if($chathead['id'] == $currid) echo ' chip-open'; ?>"> 
 		<img src="<?php echo $chathead['src']; ?>" alt="Person" class="img-responsive"> 
 		<i id="<?php echo $chathead['id']; ?>" class="text-clip"><?php echo $chathead['name']; ?></i>
-		<span class="closebtn" onclick="event.stopPropagation(); $(this).parent().remove(); $('ul#chat<?php echo $chathead['id']; ?> > li').remove(); clearChat(<?php echo $chathead['id']; ?>)">&times;</span>
+		<span class="closebtn" onclick="event.stopPropagation(); clearChat(<?php echo $chathead['id']; ?>)">&times;</span>
 		<input id="<?php echo $chathead['id']; ?>" type="hidden" name="<?php echo $chathead['status']; ?>" value="<?php echo $chathead['id']; ?>">
 	</div>
 <?php } ?>

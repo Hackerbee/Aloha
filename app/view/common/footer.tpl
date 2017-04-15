@@ -76,7 +76,7 @@
 			if (fileinput.val() != '') {
 				clearInterval(timer);
 				queue.add({
-					url: 'index.php?route=tool/upload&token=<?php echo $token; ?>',
+					url: '<?php echo $uploadimage; ?>',
 					type: 'post',
 					dataType: 'json',
 					data: new FormData($('#form-upload')[0]),
@@ -154,7 +154,7 @@
 				clearInterval(timer);
 
 				queue.add({
-					url: 'index.php?route=tool/upload/doc&token=<?php echo $token; ?>',
+					url: '<?php echo $uploaddoc; ?>',
 					type: 'post',
 					dataType: 'json',
 					data: new FormData($('#form-upload')[0]),
@@ -232,7 +232,7 @@
 				clearInterval(timer);
 
 				queue.add({
-					url: 'index.php?route=tool/upload/audio&token=<?php echo $token; ?>',
+					url: '<?php echo $uploadaudio; ?>',
 					type: 'post',
 					dataType: 'json',
 					data: new FormData($('#form-upload')[0]),
@@ -363,7 +363,7 @@
 			datatype: 'text',
 			data: { 'messagesent': message },
 			beforeSend: function() {
-				$('ul.search-results').html('');
+				// $('ul.search-results').html('');
 				$('input[name="message"]').val('');
 			},
 			success: function(data) {
@@ -451,9 +451,9 @@
         UserSearch
 ======================================================================================================== */
 
-	$('input#usersearch').blur(function() {
-		$('ul.search-results').html('');
-	});
+	// $('input#usersearch').blur(function() {
+	// 	$('ul.search-results').html('');
+	// });
 
 	$('input#usersearch').on('keyup',function() {
 		var e = $('input#usersearch').val();
@@ -461,7 +461,7 @@
 		queue.add({
 			url:'<?php echo $search; ?>&q='+e+'&id='+id,
 			type: 'GET',
-			datatype: 'json',
+			datatype: 'text',
 			beforeSend: function() {
 				$('ul.search-results').html('');
 			},
@@ -473,6 +473,21 @@
 			}
 		});
 	});
+	
+	function addContact(id) {
+		var q = <?php echo $userid; ?>;
+		alert(id+' '+q);
+		queue.add({
+			url:'<?php echo $addchat; ?>&q='+q+'&id='+ id,
+			type: 'GET',
+			success: function(data) {
+				alert(data);
+			},
+			error: function(xhr, ajaxOptions, thrownError) {
+				alert('Ajax error contact add' + thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+			}
+		});
+	};
 
 	$('button[ul-id]').click(function(e) {
 		e.preventDefault();
@@ -504,20 +519,6 @@
 		});
 	});
 
-	function addContact(id) {
-		var q = <?php echo $userid; ?>;
-		// alert(id+' '+q);
-		queue.add({
-			url:'<?php echo $addchat; ?>&q='+q+'&id='+ id,
-			type: 'GET',
-			success: function(data) {
-				alert('success');
-			},
-			error: function(xhr, ajaxOptions, thrownError) {
-				alert('Ajax error contact add' + thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
-			}
-		});
-	};
 
 	// image defer load
 	// var img = $('<img class="img-responsive" />').attr('src', json['path']).on('load',function(){ $('#loadimg').html(img); });
@@ -563,7 +564,7 @@
 						var c = chips[i];
 						switch(c.op) {
 							case 'add' :
-								$('<div id="'+c.id+'" class="chip '+c.class+'"><img src="'+ c.src +'" alt="'+c.name+'" class="img-responsive"><i id="'+c.id+'" class="text-clip">'+c.name+'</i><span class="closebtn" onclick="event.stopPropagation(); $(this).parent().remove(); var id = "u"+$(this).attr("id"); $("ul#"+id).remove(); clearChat('+c.id+')">&times;</span><input id="'+c.id+'" type="hidden" name="'+c.class.substring(0,7)+'" value="'+c.id+'"></div></div>').appendTo('#chip-container');
+								$('<div id="'+c.id+'" class="chip '+c.class+'"><img src="'+ c.src +'" alt="'+c.name+'" class="img-responsive"><i id="'+c.id+'" class="text-clip">'+c.name+'</i><span class="closebtn" onclick="event.stopPropagation(); clearChat('+c.id+')">&times;</span><input id="'+c.id+'" type="hidden" name="'+c.class.substring(0,7)+'" value="'+c.id+'"></div></div>').appendTo('#chip-container');
 								//deferLoad();
 								break;
 							case 'status' :

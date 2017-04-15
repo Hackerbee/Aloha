@@ -300,6 +300,7 @@ body {
 	overflow-y: auto;
 	top: 70px;
 	bottom: 20px;
+	width: 110%;
 }
 
 #chip-container::-webkit-scrollbar {
@@ -346,6 +347,7 @@ body {
 	// left: 110%;
 	// z-index: -5;
 	opacity: 0;
+	display: none;
 }
 
 .sidenav-open {
@@ -522,6 +524,10 @@ a.sidnav-closebtn:active {
 	padding-bottom: 100px;
 	overflow-y: auto;
 	overflow-x: hidden;
+}
+
+#messagebody > ul > li:last-child {
+	
 }
 
 #nav-wrapper {

@@ -10,7 +10,7 @@ class ControllerSearchUserlist extends Controller {
 		$data = null;
 
 		foreach ($results as $result) {
-			$data .= "<li id=".$result['userid']." onclick='addContact(".$result['userid'].")'>".$result['username']."</li>";
+			$data .= "<li id=".$result['userid']." onclick='javascript:addContact(".$result['userid'].")'>".$result['username']."</li>";
 		}
 
 		$this->response->setOutput($data);

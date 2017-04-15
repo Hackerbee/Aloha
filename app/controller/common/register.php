@@ -13,11 +13,11 @@ class ControllerCommonRegister extends Controller {
 			// // Clear any previous login attempts for unregistered accounts.
 			$this->model_tool_upload->addUser($this->request->post['email'],sha1($this->request->post['password']),$this->request->post['username']);
 
-			// $this->customer->login($this->request->post['email'], $this->request->post['password']);
+			$this->user->login($this->request->post['username'], $this->request->post['password']);
 
 			// unset($this->session->data['guest']);
 
-			$this->response->redirect($this->url->link('common/home'));
+			$this->response->redirect($this->url->link('common/login'));
 		}
 
 		if (isset($this->error['warning'])) {

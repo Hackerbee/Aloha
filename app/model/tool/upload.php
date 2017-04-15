@@ -16,7 +16,7 @@ class ModelToolUpload extends Model {
 	public function addUser($email,$password,$username){
 			$this->db->query("INSERT INTO users (username,password,email,date_joined,userstate) VALUES ('" . $username . "' , '" . $password . "' , '" . $email . "' , NOW() , 'Online')");
 			$userid = $this->db->query("SELECT userid FROM users WHERE email = '" . $email . "'")->row['userid'];
-			$this->db->query("CREATE TABLE u" . $userid . " (contactId int, status varchar(10));");
+			$this->db->query("CREATE TABLE u" . $userid . " (contactId int, status varchar(10), PRIMARY KEY(`contactId`));");
 		}
 	public function findUser($username){
 			return $this->db->query("SELECT count(userid) as no FROM users WHERE username = '" . $username . "'")->row['no'];

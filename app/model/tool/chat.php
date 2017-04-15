@@ -3,11 +3,14 @@ class ModelToolChat extends Model  {
 	public function addChat($user,$contact){
 		if($contact > $user) {
 			$this->db->query("CREATE TABLE `achat`.`u" . $user . ":u" . $contact ."` ( `messgeId` INT(11) NOT NULL AUTO_INCREMENT , `sender` VARCHAR(40) NOT NULL , `time` DATETIME NOT NULL , `status` VARCHAR(40) NOT NULL , `message` VARCHAR(1024) NOT NULL, `messagetype` VARCHAR(15) , PRIMARY KEY (`messgeId`) )");
-		}
-		else
+		} else {
 			$this->db->query("CREATE TABLE `achat`.`u" . $contact . ":u" . $user ."` ( `messgeId` INT(11) NOT NULL AUTO_INCREMENT , `sender` VARCHAR(40) NOT NULL , `time` DATETIME NOT NULL , `status` VARCHAR(40) NOT NULL , `message` VARCHAR(1024) NOT NULL, `messagetype` VARCHAR(15), PRIMARY KEY (`messgeId`) )");
+		}
+
 		$this->db->query("INSERT INTO u" . $contact ."(contactId,status) VALUES ('" . $user . "' ,  'Unblocked')");
 		$this->db->query("INSERT INTO u" .  $user ."(contactId,status) VALUES ('" . $contact . "' , 'Unblocked')");
+
+		return $this->db->getLastId();
 	}
 
 	public function setDelivered($user){

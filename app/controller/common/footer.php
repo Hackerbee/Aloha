@@ -19,6 +19,10 @@ class ControllerCommonFooter extends Controller {
 			$data['logout'] = $this->url->link('common/logout','token='.$this->session->data['token']);
 			
 			$data['token'] = $this->session->data['token'];
+
+			$data['uploadimage'] = $this->url->link('tool/upload','token='.$this->session->data['token']);
+			$data['uploadaudio'] = $this->url->link('tool/upload/audio','token='.$this->session->data['token']);
+			$data['uploaddoc'] = $this->url->link('tool/upload/doc','token='.$this->session->data['token']);
 		}
 
 		// Whos Online

@@ -31,4 +31,4 @@ $_['action_default'] = 'common/home';
 
 $_['config_encryption'] = 'aloha';
 $_['config_compression'] = 0;
-$_['config_seo_url'] = 0;
+$_['config_seo_url'] = 1;
